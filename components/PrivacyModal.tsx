@@ -35,7 +35,7 @@ export default function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-lg text-slate-muted hover:bg-cream hover:text-slate-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            className="p-2 rounded-lg text-slate-muted hover:bg-cream hover:text-slate-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
             aria-label="Cerrar"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,7 +47,7 @@ export default function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
           <p><strong className="text-slate-text">Última actualización:</strong> 2025.</p>
           <p>En Yurna Finance respetamos tu privacidad. Esta política describe qué datos recopilamos, cómo los usamos y tus derechos.</p>
           <h3 className="font-semibold text-slate-text mt-4">1. Responsable</h3>
-          <p>El responsable del tratamiento es Yurna Finance. Contacto: <a href="mailto:yurna@yurnafinance.com" className="text-gold hover:underline">yurna@yurnafinance.com</a>.</p>
+          <p>El responsable del tratamiento es Yurna Finance. Contacto: <a href="mailto:yurna@yurnafinance.com" className="text-brand hover:underline">yurna@yurnafinance.com</a>.</p>
           <h3 className="font-semibold text-slate-text mt-4">2. Datos que recopilamos</h3>
           <p>Nombre, apellido, correo electrónico, teléfono y mensajes que nos envíes a través del formulario o por WhatsApp.</p>
           <h3 className="font-semibold text-slate-text mt-4">3. Finalidad</h3>
@@ -55,7 +55,7 @@ export default function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
           <h3 className="font-semibold text-slate-text mt-4">4. Conservación y seguridad</h3>
           <p>Conservamos los datos mientras sea necesario para la finalidad indicada o por obligaciones legales. Aplicamos medidas técnicas y organizativas para proteger tu información.</p>
           <h3 className="font-semibold text-slate-text mt-4">5. Tus derechos</h3>
-          <p>Puedes ejercer acceso, rectificación, supresión, limitación, portabilidad y oposición escribiendo a <a href="mailto:yurna@yurnafinance.com" className="text-gold hover:underline">yurna@yurnafinance.com</a>. Tienes derecho a reclamar ante la autoridad de control.</p>
+          <p>Puedes ejercer acceso, rectificación, supresión, limitación, portabilidad y oposición escribiendo a <a href="mailto:yurna@yurnafinance.com" className="text-brand hover:underline">yurna@yurnafinance.com</a>. Tienes derecho a reclamar ante la autoridad de control.</p>
         </div>
       </div>
     </div>

@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Link from 'next/link'
 
-const WHATSAPP_URL = 'https://wa.me/50768973414?text=Hola,%20me%20interesa%20agendar%20una%20Sesión%20Estratégica%20con%20Yurna%20Finance.'
+const WHATSAPP_URL = 'https://wa.me/50768973414?text=Hola,%20me%20interesa%20una%20consulta%20de%20consultoría%20financiera%20con%20Yurna%20Finance.'
 
 export default function FloatingButtons() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -21,7 +20,6 @@ export default function FloatingButtons() {
 
   return (
     <>
-      {/* Botón subir — izquierda, fijo, visible al hacer scroll */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
@@ -31,7 +29,7 @@ export default function FloatingButtons() {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.25 }}
             onClick={scrollToTop}
-            className="fixed left-4 bottom-6 md:left-6 md:bottom-8 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-navy text-white shadow-lg hover:bg-navy-light hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 transition-all"
+            className="fixed left-4 bottom-6 md:left-6 md:bottom-8 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-navy text-white shadow-elevated hover:bg-emerald hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2 transition-all duration-200"
             aria-label="Volver arriba"
           >
             <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,7 +39,6 @@ export default function FloatingButtons() {
         )}
       </AnimatePresence>
 
-      {/* WhatsApp — derecha, fijo, con tooltip al pasar el mouse */}
       <div className="fixed right-4 bottom-6 md:right-6 md:bottom-8 z-50 group">
         <span
           className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-slate-text text-white text-sm font-medium whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none shadow-lg"
@@ -66,15 +63,6 @@ export default function FloatingButtons() {
           </svg>
         </motion.a>
       </div>
-
-      {/* Agendar — solo móvil, encima de WhatsApp para no solaparse */}
-      <Link
-        href="/agendar"
-        className="md:hidden fixed bottom-24 right-4 z-40 flex items-center justify-center px-4 py-2.5 rounded-full bg-gold hover:bg-gold-light text-navy font-semibold text-sm shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
-        aria-label="Agendar sesión"
-      >
-        Agendar
-      </Link>
     </>
   )
 }

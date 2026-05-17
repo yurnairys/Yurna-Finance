@@ -10,8 +10,18 @@ const navLinks = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
   { href: '#metodo', label: 'Método' },
+  { href: '#para-quien', label: 'Para quién es' },
+  { href: '#casos', label: 'Casos de uso' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#contacto', label: 'Contacto' },
+]
+
+const services = [
+  'Diagnóstico financiero',
+  'Consultoría para empresas',
+  'Finanzas para emprendedores',
+  'Organización financiera personal',
+  'Flujo de caja y presupuestos',
+  'Acompañamiento mensual',
 ]
 
 export default function Footer() {
@@ -21,48 +31,33 @@ export default function Footer() {
 
   return (
     <>
-      <footer
-        id="contacto"
-        className="bg-navy text-white py-16 md:py-20 border-t border-white/10"
-        aria-label="Pie de página"
-      >
-        <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-            {/* Col 1: Marca */}
-            <div>
-              <Link href="/" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded">
+      <footer id="contacto" className="bg-navy-dark text-white section-padding-sm border-t border-white/10" aria-label="Pie de página">
+        <div className="section-container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"><div>
+              <Link href="/" className="inline-block">
                 <Image
-                  src="/assets/img/yurnalogo.png"
+                  src="/assets/img/logoYurna.png"
                   alt="Yurna Finance"
-                  width={280}
-                  height={84}
-                  className="h-[4.25rem] w-auto object-contain object-left"
+                  width={200}
+                  height={60}
+                  className="h-14 w-auto object-contain"
                   unoptimized
                 />
               </Link>
-              <p className="mt-3 text-white/80 text-sm leading-relaxed max-w-xs">
-                Ordena. Cumple. Crece. Arquitectura financiera integral para personas, emprendedores y empresas.
+              <p className="mt-3 text-sm text-white/75 leading-relaxed max-w-xs">
+                Consultoría financiera para personas, emprendedores y empresas. Estructura, control y ejecución.
               </p>
-              <Link
-                href="/agendar"
-                className="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-gold/20 text-gold text-sm font-semibold hover:bg-gold/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-              >
-                Agendar sesión
+              <Link href="/agendar" className="btn-primary mt-5 !text-sm !py-2.5 !px-5">
+                Agenda una consulta
               </Link>
             </div>
 
-            {/* Col 2: Enlaces */}
             <div>
-              <h3 className="font-display font-semibold text-white text-sm uppercase tracking-wider">
-                Navegación
-              </h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gold-light">Navegación</h3>
               <ul className="mt-4 space-y-2.5">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-white/80 hover:text-gold text-sm transition-colors focus:outline-none focus-visible:text-gold"
-                    >
+                    <a href={link.href} className="text-sm text-white/75 hover:text-emerald-light transition-colors">
                       {link.label}
                     </a>
                   </li>
@@ -70,18 +65,21 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Col 3: Contacto */}
             <div>
-              <h3 className="font-display font-semibold text-white text-sm uppercase tracking-wider">
-                Contacto
-              </h3>
-              <ul className="mt-4 space-y-3 text-sm text-white/80">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gold-light">Servicios</h3>
+              <ul className="mt-4 space-y-2.5 text-sm text-white/75">
+                {services.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gold-light">Contacto</h3>
+              <ul className="mt-4 space-y-3 text-sm text-white/75">
                 <li>
-                  <a
-                    href="mailto:yurna@yurnafinance.com"
-                    className="hover:text-gold transition-colors inline-flex items-center gap-2 focus:outline-none focus-visible:text-gold"
-                  >
-                    <span className="text-gold">✉</span> yurna@yurnafinance.com
+                  <a href="mailto:yurna@yurnafinance.com" className="hover:text-emerald-light transition-colors">
+                    yurna@yurnafinance.com
                   </a>
                 </li>
                 <li>
@@ -89,9 +87,9 @@ export default function Footer() {
                     href="https://wa.me/50768973414"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gold transition-colors inline-flex items-center gap-2 focus:outline-none focus-visible:text-gold"
+                    className="hover:text-emerald-light transition-colors"
                   >
-                    <span className="text-gold">💬</span> WhatsApp +507 6897 3414
+                    WhatsApp +507 6897 3414
                   </a>
                 </li>
                 <li>
@@ -99,65 +97,22 @@ export default function Footer() {
                     href="https://www.instagram.com/yurnafinance"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gold transition-colors inline-flex items-center gap-2 focus:outline-none focus-visible:text-gold"
+                    className="hover:text-emerald-light transition-colors"
                   >
-                    <span className="text-gold">📷</span> @yurnafinance
+                    @yurnafinance
                   </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Col 4: Mis servicios */}
-            <div>
-              <h3 className="font-display font-semibold text-white text-sm uppercase tracking-wider">
-                Mis servicios
-              </h3>
-              <ul className="mt-4 space-y-2.5 text-sm">
-                <li>
-                  <Link
-                    href="/agendar?tipo=personal"
-                    className="text-white/80 hover:text-gold transition-colors focus:outline-none focus-visible:text-gold"
-                  >
-                    Sesión Estratégica Personal
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/agendar?tipo=emprendedor"
-                    className="text-white/80 hover:text-gold transition-colors focus:outline-none focus-visible:text-gold"
-                  >
-                    Sesión para Emprendedores
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/agendar?tipo=empresarial"
-                    className="text-white/80 hover:text-gold transition-colors focus:outline-none focus-visible:text-gold"
-                  >
-                    Sesión Estratégica Empresarial
-                  </Link>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/60 text-xs">
-              © {year} Yurna Finance. Todos los derechos reservados.
-            </p>
-            <div className="flex gap-6 text-xs">
-              <button
-                type="button"
-                onClick={() => setPrivacyOpen(true)}
-                className="text-white/60 hover:text-gold transition-colors focus:outline-none focus-visible:text-gold"
-              >
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+            <p>© {year} Yurna Finance. Consultoría financiera. Todos los derechos reservados.</p>
+            <div className="flex gap-6">
+              <button type="button" onClick={() => setPrivacyOpen(true)} className="hover:text-gold-light transition-colors">
                 Privacidad
               </button>
-              <button
-                type="button"
-                onClick={() => setLegalOpen(true)}
-                className="text-white/60 hover:text-gold transition-colors focus:outline-none focus-visible:text-gold"
-              >
+              <button type="button" onClick={() => setLegalOpen(true)} className="hover:text-gold-light transition-colors">
                 Aviso legal
               </button>
             </div>

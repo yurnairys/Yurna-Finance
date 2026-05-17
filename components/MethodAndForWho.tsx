@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import SectionHeader from './SectionHeader'
 import {
   IconChart,
   IconDocument,
@@ -58,30 +59,16 @@ export default function MethodAndForWho() {
   return (
     <section
       id="metodo"
-      className="py-20 md:py-28 lg:py-32 bg-cream pattern-dots overflow-hidden"
+      className="section-padding section-surface overflow-hidden"
       aria-labelledby="section-heading"
     >
-      <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
-        {/* Título principal de la sección */}
-        <motion.h2
-          id="section-heading"
-          className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-slate-text text-center mb-4"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Cómo trabajamos
-        </motion.h2>
-        <motion.p
-          className="text-center text-slate-muted text-lg md:text-xl max-w-2xl mx-auto mb-14 md:mb-16"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          Un proceso claro y pensado para quienes buscan resultados con orden.
-        </motion.p>
+      <div className="section-container">
+        <SectionHeader
+          eyebrow="Proceso"
+          title="Cómo trabajamos"
+          subtitle="Un proceso claro y pensado para quienes buscan resultados con orden."
+        />
+        <h2 id="section-heading" className="sr-only">Cómo trabajamos</h2>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-14 xl:gap-20 items-start">
           {/* Columna 1: Método Yurna Finance */}
@@ -92,7 +79,7 @@ export default function MethodAndForWho() {
             viewport={{ once: true, margin: '-50px' }}
             variants={containerLeft}
           >
-            <div className="sticky top-24">
+            <div className="sticky top-28 card-panel">
               <h3
                 id="method-heading"
                 className="font-display font-semibold text-xl md:text-2xl lg:text-3xl text-slate-text"
@@ -114,15 +101,15 @@ export default function MethodAndForWho() {
                     variants={itemLeft}
                     whileHover={{ x: 8, scale: 1.02 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-white border-2 border-card-border hover:border-gold/50 hover:shadow-lg transition-all cursor-default"
+                    className="flex items-center gap-4 p-4 card card-hover border hover:border-brand/50 hover:shadow-lg transition-all cursor-default"
                   >
                     <span
-                      className="flex-shrink-0 w-10 h-10 rounded-xl bg-navy text-white font-display font-semibold flex items-center justify-center text-sm"
+                      className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand text-white font-display font-semibold flex items-center justify-center text-sm"
                       aria-hidden="true"
                     >
                       {i + 1}
                     </span>
-                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center text-gold">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-muted flex items-center justify-center text-brand">
                       <step.icon />
                     </span>
                     <span className="text-base md:text-lg font-semibold text-slate-text">{step.label}</span>
@@ -140,7 +127,7 @@ export default function MethodAndForWho() {
             viewport={{ once: true, margin: '-50px' }}
             variants={containerRight}
           >
-            <div className="sticky top-24">
+            <div className="sticky top-28 card-panel">
               <h3
                 id="forwho-heading"
                 className="font-display font-semibold text-xl md:text-2xl lg:text-3xl text-slate-text"
@@ -161,13 +148,13 @@ export default function MethodAndForWho() {
                     variants={itemRight}
                     whileHover={{ x: -8, scale: 1.02 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-white border-2 border-card-border hover:border-gold/50 hover:shadow-lg transition-all cursor-default"
+                    className="flex items-center gap-4 p-4 card card-hover border hover:border-brand/50 hover:shadow-lg transition-all cursor-default"
                   >
-                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center text-gold">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-muted flex items-center justify-center text-brand">
                       <row.icon />
                     </span>
                     <span className="flex-1 text-base md:text-lg font-medium text-slate-text">{row.text}</span>
-                    <span className="flex-shrink-0 text-gold">
+                    <span className="flex-shrink-0 text-brand">
                       <IconCheck />
                     </span>
                   </motion.li>

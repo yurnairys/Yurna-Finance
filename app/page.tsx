@@ -1,9 +1,13 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import Problem from '@/components/Problem'
+import Solution from '@/components/Solution'
 import Services from '@/components/Services'
-import ExtraServicesPromo from '@/components/ExtraServicesPromo'
-import Differentiator from '@/components/Differentiator'
-import MethodAndForWho from '@/components/MethodAndForWho'
+import Method from '@/components/Method'
+import ForWho from '@/components/ForWho'
+import Benefits from '@/components/Benefits'
+import Authority from '@/components/Authority'
+import UseCases from '@/components/UseCases'
 import FAQ from '@/components/FAQ'
 import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
@@ -15,20 +19,30 @@ export default function Home() {
     <>
       <Navbar />
       <main id="main-content">
-        <SectionTransition variant="fadeOnly">
-          <Hero />
+        <Hero />
+        <SectionTransition variant="fadeUp">
+          <Problem />
+        </SectionTransition>
+        <SectionTransition variant="fadeUp">
+          <Solution />
         </SectionTransition>
         <SectionTransition variant="scaleIn">
           <Services />
         </SectionTransition>
         <SectionTransition variant="fadeUp">
-          <ExtraServicesPromo />
+          <Method />
         </SectionTransition>
         <SectionTransition variant="fadeUp">
-          <MethodAndForWho />
+          <ForWho />
         </SectionTransition>
         <SectionTransition variant="fadeLeft">
-          <Differentiator />
+          <Benefits />
+        </SectionTransition>
+        <SectionTransition variant="fadeUp">
+          <Authority />
+        </SectionTransition>
+        <SectionTransition variant="fadeUp">
+          <UseCases />
         </SectionTransition>
         <SectionTransition variant="fadeUp">
           <FAQ />

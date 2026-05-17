@@ -20,7 +20,7 @@ const stats: StatItem[] = [
 export default function Stats() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [counts, setCounts] = useState<(string | number)[]>(stats.map((s) => typeof s.value === 'number' ? 0 : s.value))
+  const [counts, setCounts] = useState<(string | number)[]>(stats.map((s) => (typeof s.value === 'number' ? 0 : s.value)))
 
   useEffect(() => {
     if (!isInView) return
@@ -62,18 +62,18 @@ export default function Stats() {
   }, [isInView])
 
   return (
-    <section id="stats-section" className="py-16 md:py-20 bg-white border-y border-slate-100">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <section id="stats-section" className="trust-bar" aria-label="Indicadores">
+      <div ref={ref} className="section-container">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-card-border/80">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="text-center"
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              className="trust-stat lg:px-6 xl:px-10"
             >
-              <p className="text-2xl md:text-3xl font-extrabold text-brand-yellow mb-1 font-sans">
+              <p className="trust-stat-value bg-gradient-to-r from-navy to-brand bg-clip-text text-transparent">
                 {typeof stat.value === 'number' ? (
                   <>
                     {stat.prefix}
@@ -84,7 +84,7 @@ export default function Stats() {
                   counts[index] as string
                 )}
               </p>
-              <p className="text-slate-600 text-sm md:text-base font-medium">{stat.label}</p>
+              <p className="trust-stat-label">{stat.label}</p>
             </motion.div>
           ))}
         </div>

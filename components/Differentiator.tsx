@@ -21,8 +21,8 @@ const item = {
 
 export default function Differentiator() {
   return (
-    <section className="py-24 md:py-32 bg-white border-y border-card-border overflow-hidden" aria-labelledby="diff-heading">
-      <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
+    <section className="section-padding section-surface border-y border-card-border overflow-hidden" aria-labelledby="diff-heading">
+      <div className="section-container">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <motion.div
             className="lg:col-span-7"
@@ -33,19 +33,19 @@ export default function Differentiator() {
           >
             <motion.span
               variants={item}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/15 text-gold text-sm font-medium mb-6"
+              className="badge mb-6"
             >
               <IconSparkles />
               Sobre mí
             </motion.span>
             <h2
               id="diff-heading"
-              className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-slate-text max-w-3xl leading-tight"
+              className="section-title max-w-3xl leading-tight"
             >
               <motion.span variants={item} className="block">
                 No soy solo contabilidad.
               </motion.span>
-              <motion.span variants={item} className="block mt-2 text-gold">
+              <motion.span variants={item} className="block mt-2 text-brand">
                 Soy estructura y visión financiera integral.
               </motion.span>
             </h2>
@@ -57,7 +57,7 @@ export default function Differentiator() {
             </motion.p>
             <motion.blockquote
               variants={item}
-              className="mt-12 relative pl-6 pr-6 py-6 md:pl-8 md:py-8 bg-cream border-l-4 border-gold rounded-r-xl max-w-2xl shadow-card hover:shadow-cardHover transition-shadow"
+              className="mt-12 relative pl-6 pr-6 py-6 md:pl-8 md:py-8 bg-brand-soft border-l-4 border-brand rounded-2xl md:rounded-3xl max-w-2xl shadow-card hover:shadow-cardHover transition-shadow"
             >
               <IconQuote />
               <p className="font-display font-semibold text-slate-text text-lg md:text-xl italic mt-2">
@@ -73,11 +73,11 @@ export default function Differentiator() {
             transition={{ duration: 0.6 }}
           >
             <div className="relative">
-              <div className="absolute -inset-3 rounded-2xl bg-gold/10 blur-2xl" aria-hidden="true" />
+              <div className="absolute -inset-3 rounded-2xl bg-brand/10 blur-2xl" aria-hidden="true" />
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                className="relative rounded-2xl overflow-hidden border border-card-border shadow-cardHover aspect-[4/5] max-h-[420px]"
+                className="relative rounded-3xl overflow-hidden border border-card-border shadow-cardHover aspect-[4/5] max-h-[420px]"
               >
                 <Image
                   src={sobremiImg}

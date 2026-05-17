@@ -2,177 +2,109 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { IconUser, IconBriefcase, IconBuilding, IconCheck, IconArrowRight } from './Icons'
+import SectionHeader from './SectionHeader'
+import {
+  IconChart,
+  IconBuilding,
+  IconBriefcase,
+  IconUser,
+  IconDocument,
+  IconCalculator,
+  IconTrendingUp,
+  IconCalendar,
+} from './Icons'
 
-const plans = [
+const services = [
   {
-    title: 'Sesión Estratégica Personal',
-    tipo: 'personal',
-    for: 'Profesionales e individuos',
-    icon: IconUser,
-    includes: [
-      'Diagnóstico financiero personal',
-      'Revisión de ingresos y gastos',
-      'Orientación fiscal básica',
-      'Recomendaciones de inversión inicial',
-      'Plan de acción personalizado',
-    ],
-    cta: 'Agendar sesión personal',
-    featured: false,
+    title: 'Diagnóstico financiero',
+    description: 'Revisión integral de tu situación actual: números, procesos y puntos críticos.',
+    benefit: 'Sabes exactamente dónde estás parado.',
+    icon: IconChart,
+    href: '/agendar?tipo=diagnostico',
   },
   {
-    title: 'Sesión Estratégica para Emprendedores',
-    tipo: 'emprendedor',
-    for: 'Emprendedores',
-    icon: IconBriefcase,
-    includes: [
-      'Diagnóstico financiero del negocio',
-      'Revisión contable y fiscal',
-      'Identificación de riesgos',
-      'Optimización de flujo de caja',
-      'Ruta estratégica de crecimiento',
-    ],
-    cta: 'Agendar sesión emprendedor',
-    featured: true,
-  },
-  {
-    title: 'Sesión Estratégica Empresarial',
-    tipo: 'empresarial',
-    for: 'Empresas',
+    title: 'Consultoría financiera para empresas',
+    description: 'Estructura, control y reportes para empresas que necesitan orden y dirección.',
+    benefit: 'Decisiones ejecutivas con datos reales.',
     icon: IconBuilding,
-    includes: [
-      'Diagnóstico integral',
-      'Revisión estructura contable y fiscal',
-      'Evaluación de rentabilidad y costos',
-      'Análisis de riesgos financieros',
-      'Propuesta de optimización y expansión',
-      'Reunión estratégica ejecutiva',
-    ],
-    cta: 'Agendar sesión empresarial',
-    featured: false,
+    href: '/agendar?tipo=empresarial',
+  },
+  {
+    title: 'Finanzas para emprendedores',
+    description: 'Claridad sobre rentabilidad, gastos y crecimiento de tu negocio.',
+    benefit: 'Entiendes si tu emprendimiento realmente gana.',
+    icon: IconBriefcase,
+    href: '/agendar?tipo=emprendedor',
+  },
+  {
+    title: 'Organización financiera personal',
+    description: 'Presupuesto, flujo y plan de acción para tus finanzas personales.',
+    benefit: 'Tranquilidad y control en tu economía personal.',
+    icon: IconUser,
+    href: '/agendar?tipo=personal',
+  },
+  {
+    title: 'Estructuración administrativa y contable',
+    description: 'Procesos claros, responsabilidades definidas y mejor flujo de información.',
+    benefit: 'Menos caos administrativo en el día a día.',
+    icon: IconDocument,
+    href: '/agendar?tipo=empresarial',
+  },
+  {
+    title: 'Evaluación financiera de proyectos',
+    description: 'Análisis de viabilidad, costos y retorno antes de invertir o expandirte.',
+    benefit: 'Inviertes con criterio, no con intuición.',
+    icon: IconCalculator,
+    href: '/agendar?tipo=proyectos',
+  },
+  {
+    title: 'Control de flujo de caja y presupuestos',
+    description: 'Herramientas y seguimiento para saber cuánto entra, sale y sobra.',
+    benefit: 'Anticipas problemas antes de que aparezcan.',
+    icon: IconTrendingUp,
+    href: '/agendar?tipo=flujo',
+  },
+  {
+    title: 'Acompañamiento mensual',
+    description: 'Seguimiento continuo para sostener orden, control y mejora financiera.',
+    benefit: 'Resultados sostenibles con apoyo estratégico.',
+    icon: IconCalendar,
+    href: '/agendar?tipo=acompanamiento',
   },
 ]
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-}
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-}
-
 export default function Services() {
   return (
-    <section
-      id="servicios"
-      className="py-24 md:py-32 bg-cream pattern-dots overflow-hidden"
-      aria-labelledby="services-heading"
-    >
-      <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h2
-            id="services-heading"
-            className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-slate-text leading-snug"
-          >
-            ¿Qué tienen en común el éxito personal y el empresarial?
-          </h2>
-          <p className="mt-5 text-lg md:text-xl text-gold font-semibold tracking-wide">
-            La misma base: finanzas ordenadas.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-40px' }}
-          className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch"
-        >
-          {plans.map((plan, i) => (
+    <section id="servicios" className="section-padding section-surface-alt" aria-labelledby="services-heading">
+      <div className="section-container">
+        <SectionHeader
+          eyebrow="Servicios"
+          title="Consultoría financiera a tu medida"
+          subtitle="Soluciones claras para personas, emprendedores y empresas que buscan estructura y resultados."
+        />
+        <h2 id="services-heading" className="sr-only">Servicios de consultoría financiera</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          {services.map((s, i) => (
             <motion.article
-              key={i}
-              variants={item}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className={`relative flex flex-col rounded-2xl border overflow-hidden transition-shadow duration-300 ${
-                plan.featured
-                  ? 'bg-navy text-white border-gold/40 shadow-gold md:-mt-2 md:mb-2 md:scale-[1.03] ring-2 ring-gold/30'
-                  : 'bg-card-bg border-card-border shadow-card hover:shadow-cardHover hover:border-gold/30'
-              }`}
+              key={s.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: (i % 4) * 0.08 }}
+              className="card card-hover p-6 flex flex-col"
             >
-              {plan.featured && (
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-dark via-gold to-gold-light" aria-hidden="true" />
-              )}
-              <div className="p-6 md:p-8 flex flex-col flex-1">
-                <motion.div
-                  whileHover={{ scale: 1.05, rotate: 2 }}
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center ${
-                    plan.featured ? 'bg-gold/25 text-gold-light' : 'bg-gold/15 text-gold'
-                  }`}
-                >
-                  <plan.icon />
-                </motion.div>
-                <h3 className={`mt-5 font-display font-semibold text-xl md:text-2xl ${plan.featured ? 'text-white' : 'text-slate-text'}`}>
-                  {plan.title}
-                </h3>
-                <p className={`mt-2 text-sm ${plan.featured ? 'text-white/70' : 'text-slate-muted'}`}>
-                  {plan.for}
-                </p>
-                <ul className="mt-6 space-y-3 flex-1" role="list">
-                  {plan.includes.map((incl, j) => (
-                    <motion.li
-                      key={j}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 * j }}
-                      className={`flex items-start gap-3 text-sm md:text-base ${
-                        plan.featured ? 'text-white/90' : 'text-slate-muted'
-                      }`}
-                    >
-                      <span className={`flex-shrink-0 mt-0.5 ${plan.featured ? 'text-gold-light' : 'text-gold'}`}>
-                        <IconCheck />
-                      </span>
-                      <span>{incl}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Link
-                    href={`/agendar?tipo=${plan.tipo}`}
-                    className={`mt-8 inline-flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl font-semibold text-base transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
-                      plan.featured
-                        ? 'bg-gold hover:bg-gold-light text-navy shadow-gold'
-                        : 'bg-navy hover:bg-navy-light text-white'
-                    }`}
-                  >
-                    {plan.cta}
-                    <IconArrowRight />
-                  </Link>
-                </motion.div>
-              </div>
+              <span className="w-12 h-12 rounded-xl bg-emerald-muted text-emerald flex items-center justify-center">
+                <s.icon />
+              </span>
+              <h3 className="mt-4 font-display font-semibold text-lg text-slate-text leading-snug">{s.title}</h3>
+              <p className="mt-2 text-sm text-slate-muted flex-1">{s.description}</p>
+              <p className="mt-3 text-sm font-semibold text-emerald-dark">{s.benefit}</p>
+              <Link href={s.href} className="btn-link mt-4">
+                Conocer más →
+              </Link>
             </motion.article>
           ))}
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center text-slate-muted text-sm md:text-base"
-        >
-          Pago previo requerido para confirmar la sesión.
-        </motion.p>
+        </div>
       </div>
     </section>
   )

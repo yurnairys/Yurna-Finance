@@ -6,8 +6,8 @@ import { IconArrowRight, IconBuilding } from './Icons'
 
 export default function ExtraServicesPromo() {
   return (
-    <section className="py-0 bg-cream pattern-dots overflow-hidden" aria-labelledby="extra-services-promo-heading">
-      <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
+    <section className="py-8 md:py-12 section-surface-alt overflow-hidden" aria-labelledby="extra-services-promo-heading">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,20 +16,20 @@ export default function ExtraServicesPromo() {
         >
           <Link
             href="/servicios-extras"
-            className="group block relative overflow-hidden rounded-2xl md:rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+            className="group block relative overflow-hidden rounded-3xl shadow-elevated hover:shadow-cardHover transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
           >
             {/* Fondo azul oscuro de la marca, con toque dorado sutil a la izquierda */}
             <div
-              className="absolute inset-0 bg-gradient-to-r from-navy via-navy to-navy-dark pointer-events-none"
+              className="absolute inset-0 bg-dark-gradient pointer-events-none"
               aria-hidden
             />
             <div
-              className="absolute inset-0 bg-gradient-to-r from-gold/20 via-transparent to-transparent pointer-events-none w-1/3"
+              className="absolute inset-0 bg-gradient-to-r from-brand/25 via-transparent to-transparent pointer-events-none w-1/3"
               aria-hidden
             />
             <div className="relative px-6 py-8 sm:px-10 sm:py-10 md:px-12 md:py-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 flex-1">
-                <span className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                <span className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
                   <IconBuilding />
                 </span>
                 <div>

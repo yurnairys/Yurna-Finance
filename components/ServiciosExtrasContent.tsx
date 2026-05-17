@@ -85,8 +85,8 @@ export default function ServiciosExtrasContent() {
       {/* Hero del programa */}
       <section className="relative py-16 md:py-24 bg-navy overflow-hidden">
         <div className="absolute inset-0 opacity-30 pointer-events-none pattern-dots" style={{ backgroundSize: '24px 24px' }} aria-hidden />
-        <div className="relative max-w-content mx-auto px-3 sm:px-4 lg:px-6 text-center">
-          <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">
+        <div className="relative section-container text-center">
+          <p className="text-brand text-xs font-semibold uppercase tracking-widest mb-3">
             Programa para empresas
           </p>
           <h1 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
@@ -98,13 +98,13 @@ export default function ServiciosExtrasContent() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#pilares"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-xl border-2 border-gold text-gold font-semibold hover:bg-gold/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-xl border-2 border-brand text-brand font-semibold hover:bg-brand/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             >
               Conocer metodología
             </a>
             <Link
               href="/agendar"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gold hover:bg-gold-light text-navy font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-xl btn-primary !text-white font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             >
               Solicitar información
             </Link>
@@ -114,7 +114,7 @@ export default function ServiciosExtrasContent() {
 
       {/* Intro — contenido centrado */}
       <section className="py-12 md:py-16">
-        <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6 flex justify-center">
+        <div className="section-container flex justify-center">
           <motion.div
             className="flex flex-col items-center text-center max-w-3xl"
             initial={{ opacity: 0, y: 16 }}
@@ -122,7 +122,7 @@ export default function ServiciosExtrasContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-12 h-1 rounded-full bg-gold mb-6" aria-hidden />
+            <div className="w-12 h-1 rounded-full bg-brand mb-6" aria-hidden />
             <p className="text-slate-muted text-lg md:text-xl leading-relaxed">
               Acompañamos a las empresas a fortalecer a sus colaboradores a través de sesiones 1-1 y dinámicas internas, generando confianza, integración y claridad, para luego ordenar los procesos administrativos, contables y financieros sin necesidad de reemplazar al equipo, sino desarrollándolo.
             </p>
@@ -131,8 +131,8 @@ export default function ServiciosExtrasContent() {
       </section>
 
       {/* Pilares del Programa — debajo de la descripción */}
-      <section id="pilares" className="py-16 md:py-24 bg-cream">
-        <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
+      <section id="pilares" className="section-padding-sm bg-cream">
+        <div className="section-container">
           <motion.div
             className="text-center mb-14"
             initial={{ opacity: 0, y: 16 }}
@@ -140,8 +140,8 @@ export default function ServiciosExtrasContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-slate-text">
-              Pilares del <span className="text-gold">Programa</span>
+            <h2 className="section-title">
+              Pilares del <span className="text-brand">Programa</span>
             </h2>
             <p className="mt-3 text-slate-muted text-lg md:text-xl max-w-2xl mx-auto">
               Cuatro ejes fundamentales para transformar su organización
@@ -160,9 +160,9 @@ export default function ServiciosExtrasContent() {
                 key={pillar.title}
                 variants={item}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl bg-white border-2 border-card-border p-6 md:p-8 shadow-card hover:shadow-cardHover hover:border-gold/30 transition-all"
+                className="card card-hover border p-6 md:p-8 shadow-card hover:shadow-cardHover hover:border-brand/30 transition-all"
               >
-                <span className="inline-flex w-12 h-12 rounded-xl bg-gold/15 text-gold items-center justify-center">
+                <span className="inline-flex w-12 h-12 rounded-xl bg-brand-muted text-brand items-center justify-center">
                   <pillar.icon />
                 </span>
                 <h3 className="mt-4 font-display font-semibold text-xl md:text-2xl text-slate-text">
@@ -174,7 +174,7 @@ export default function ServiciosExtrasContent() {
                 <ul className="mt-5 space-y-2" role="list">
                   {pillar.items.map((bullet, j) => (
                     <li key={j} className="flex items-center gap-3 text-slate-text text-sm md:text-base">
-                      <span className="flex-shrink-0 text-gold">
+                      <span className="flex-shrink-0 text-brand">
                         <IconCheck />
                       </span>
                       <span>{bullet}</span>
@@ -189,7 +189,7 @@ export default function ServiciosExtrasContent() {
 
       {/* Beneficios del Programa — fondo navy, 5 cards */}
       <section className="py-16 md:py-24 bg-navy overflow-hidden">
-        <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="section-container">
           <motion.div
             className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 16 }}
@@ -197,7 +197,7 @@ export default function ServiciosExtrasContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-gold">
+            <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-brand">
               Beneficios del Programa
             </h2>
             <p className="mt-3 text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
@@ -215,9 +215,9 @@ export default function ServiciosExtrasContent() {
               <motion.article
                 key={b.title}
                 variants={item}
-                className="rounded-2xl bg-navy-light/80 border border-white/10 p-6 text-center hover:border-gold/30 transition-colors"
+                className="rounded-2xl bg-navy-light/80 border border-white/10 p-6 text-center hover:border-brand/30 transition-colors"
               >
-                <span className="inline-flex w-12 h-12 rounded-xl bg-gold/20 text-gold items-center justify-center">
+                <span className="inline-flex w-12 h-12 rounded-xl bg-brand-muted text-brand items-center justify-center">
                   <b.icon />
                 </span>
                 <h3 className="mt-4 font-display font-semibold text-lg md:text-xl text-white">
@@ -233,8 +233,8 @@ export default function ServiciosExtrasContent() {
       </section>
 
       {/* Nuestra Metodología — fondo claro, 4 pasos con línea dorada */}
-      <section className="py-16 md:py-24 bg-white border-y border-card-border">
-        <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
+      <section className="section-padding-sm bg-white border-y border-card-border">
+        <div className="section-container">
           <motion.div
             className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 16 }}
@@ -242,8 +242,8 @@ export default function ServiciosExtrasContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-slate-text">
-              Nuestra <span className="text-gold">Metodología</span>
+            <h2 className="section-title">
+              Nuestra <span className="text-brand">Metodología</span>
             </h2>
             <p className="mt-3 text-slate-muted text-lg md:text-xl max-w-2xl mx-auto">
               Un proceso estructurado para resultados sostenibles
@@ -251,7 +251,7 @@ export default function ServiciosExtrasContent() {
           </motion.div>
           <div className="relative">
             {/* Línea dorada conectora */}
-            <div className="absolute top-8 left-0 right-0 h-0.5 bg-gold/40 hidden md:block" aria-hidden />
+            <div className="absolute top-8 left-0 right-0 h-0.5 bg-brand/40 hidden md:block" aria-hidden />
             <motion.div
               className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4"
               variants={container}
@@ -265,7 +265,7 @@ export default function ServiciosExtrasContent() {
                   variants={item}
                   className="relative flex flex-col items-center text-center"
                 >
-                  <span className="relative z-10 w-16 h-16 rounded-2xl bg-white border-2 border-gold/30 shadow-card flex items-center justify-center font-display font-semibold text-xl text-gold mb-6">
+                  <span className="relative z-10 w-16 h-16 rounded-2xl bg-white border-2 border-brand/30 shadow-card flex items-center justify-center font-display font-semibold text-xl text-brand mb-6">
                     {i + 1}
                   </span>
                   <h3 className="font-display font-semibold text-xl md:text-2xl text-slate-text">
@@ -282,14 +282,14 @@ export default function ServiciosExtrasContent() {
       </section>
 
       {/* CTA final */}
-      <section className="py-16 md:py-20 bg-white border-t border-card-border">
-        <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6 text-center">
+      <section className="section-padding-sm bg-white border-t border-card-border">
+        <div className="section-container text-center">
           <p className="text-slate-muted text-lg max-w-2xl mx-auto mb-8">
             ¿Quieres llevar orden y desarrollo a tu equipo? Agenda una conversación para conocer cómo adaptamos el programa a tu empresa.
           </p>
           <Link
             href="/agendar"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gold hover:bg-gold-light text-navy font-semibold shadow-gold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-xl btn-primary !text-white font-semibold shadow-brand transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             Agendar conversación
           </Link>

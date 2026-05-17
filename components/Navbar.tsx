@@ -9,7 +9,8 @@ const navLinks = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
   { href: '#metodo', label: 'Método' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '#para-quien', label: 'Para quién es' },
+  { href: '#casos', label: 'Casos de uso' },
   { href: '#contacto', label: 'Contacto' },
 ]
 
@@ -20,12 +21,11 @@ export default function Navbar() {
   const isHome = pathname === '/'
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Al estar en home con hash (ej. /#servicios), hacer scroll a la sección
   useEffect(() => {
     if (pathname !== '/' || typeof window === 'undefined') return
     const hash = window.location.hash
@@ -39,59 +39,57 @@ export default function Navbar() {
 
   const scrollToSection = (id: string) => {
     setMobileOpen(false)
-    const el = document.querySelector(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   const handleNavClick = (e: React.MouseEvent, linkHref: string) => {
     if (isHome) {
       e.preventDefault()
       scrollToSection(linkHref)
-    }
-    // Si no estamos en home, el Link navegará a /#sección
-    else {
+    } else {
       setMobileOpen(false)
     }
   }
 
+  const isHeroHeader = isHome && !scrolled
   const isLight = scrolled
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isLight
-          ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-card-border'
-          : 'bg-navy border-b border-white/5'
+          ? 'bg-white/95 backdrop-blur-xl shadow-soft border-b border-card-border'
+          : isHeroHeader
+            ? 'bg-navy-dark/80 backdrop-blur-lg border-b border-white/10'
+            : 'bg-navy/90 backdrop-blur-md border-b border-white/10'
       }`}
     >
-      <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16 md:h-[4.5rem]">
+      <div className="section-container">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 h-16 md:h-[4.25rem] min-w-0">
           <Link
             href="/"
             onClick={(e) => isHome && (e.preventDefault(), scrollToSection('#inicio'))}
-            className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded"
+            className="flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald rounded-lg"
           >
             <Image
-              src="/assets/img/yurnalogo.png"
+              src="/assets/img/logoYurna.png"
               alt="Yurna Finance"
-              width={280}
-              height={84}
-              className="h-16 w-auto md:h-[4.25rem] object-contain object-left"
+              width={200}
+              height={60}
+              className="h-10 sm:h-12 w-auto md:h-14 object-contain"
               priority
               unoptimized
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8" aria-label="Principal">
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Principal">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href === '#inicio' ? '/' : `/${link.href}`}
+                href={isHome ? link.href : `/${link.href}`}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-sm font-medium tracking-wide transition-colors focus:outline-none focus-visible:text-gold ${
-                  isLight ? 'text-slate-muted hover:text-gold' : 'text-white/90 hover:text-gold'
+                className={`nav-link ${
+                  isLight ? 'text-slate-muted hover:text-emerald' : 'text-white/90 hover:text-white'
                 }`}
               >
                 {link.label}
@@ -99,62 +97,54 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
-            <Link
-              href="/agendar"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-gold hover:bg-gold-light text-navy font-semibold text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-            >
-              Agenda tu Sesión
+          <div className="hidden lg:block shrink-0">
+            <Link href="/agendar" className="btn-primary !px-6 !py-2.5 !text-sm whitespace-nowrap">
+              Agenda una consulta
             </Link>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden p-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
-              isLight ? 'text-slate-text hover:bg-slate-100' : 'text-white hover:bg-white/10'
-            }`}
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            {mobileOpen ? (
+          <div className="flex items-center gap-2 lg:hidden shrink-0">
+            <Link
+              href="/agendar"
+              className="btn-primary !px-3 !py-2 !text-xs sm:!px-4 sm:!text-sm whitespace-nowrap"
+            >
+              <span className="sm:hidden">Agendar</span>
+              <span className="hidden sm:inline">Agenda una consulta</span>
+            </Link>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className={`p-2.5 rounded-xl ${
+                isLight ? 'text-slate-text hover:bg-emerald-soft' : 'text-white hover:bg-white/10'
+              }`}
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                {mobileOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+            </button>
+          </div>
         </div>
       </div>
 
       {mobileOpen && (
-        <div
-          className={`md:hidden border-t ${
-            isLight ? 'border-card-border bg-white' : 'border-white/10 bg-navy'
-          }`}
-        >
-          <nav className="px-4 py-4 space-y-1" aria-label="Menú móvil">
+        <div className={`lg:hidden border-t ${isLight ? 'bg-white border-card-border' : 'bg-navy border-white/10'}`}>
+          <nav className="section-container py-4 space-y-1" aria-label="Menú móvil">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href === '#inicio' ? '/' : `/${link.href}`}
+                href={isHome ? link.href : `/${link.href}`}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`block w-full text-left py-3 font-medium transition-colors hover:text-gold ${
-                  isLight ? 'text-slate-text' : 'text-white/90'
-                }`}
+                className={`block py-3 font-medium ${isLight ? 'text-slate-text hover:text-emerald' : 'text-white/90 hover:text-emerald-light'}`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/agendar"
-              className="block mt-4 text-center py-3 rounded-lg bg-gold text-navy font-semibold"
-            >
-              Agenda tu Sesión
-            </Link>
           </nav>
         </div>
       )}

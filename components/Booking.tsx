@@ -37,8 +37,8 @@ export default function Booking() {
         aria-labelledby="booking-heading"
       >
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-md mx-auto py-12 px-6 rounded-2xl bg-white border border-card-border shadow-card">
-            <span className="w-16 h-16 rounded-2xl bg-gold/20 flex items-center justify-center text-gold mx-auto">
+          <div className="max-w-md mx-auto py-12 px-6 card card-hover shadow-card">
+            <span className="w-16 h-16 rounded-2xl bg-brand-muted flex items-center justify-center text-brand mx-auto">
               <IconCalendar />
             </span>
             <h2 className="mt-4 font-display font-semibold text-2xl text-slate-text">Mensaje enviado</h2>
@@ -62,7 +62,7 @@ export default function Booking() {
     >
       <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/15 text-gold text-sm font-medium mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-muted text-brand text-sm font-medium mb-4">
             <IconCalendar />
             <span>Reserva tu sesión</span>
           </span>
@@ -91,27 +91,27 @@ export default function Booking() {
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="nombre" className="block text-sm font-medium text-slate-text mb-1.5">
-                  Nombre <span className="text-gold">*</span>
+                  Nombre <span className="text-brand">*</span>
                 </label>
                 <input
                   type="text"
                   id="nombre"
                   name="Nombre"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
+                  className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand"
                   placeholder="Tu nombre"
                 />
               </div>
               <div>
                 <label htmlFor="apellido" className="block text-sm font-medium text-slate-text mb-1.5">
-                  Apellido <span className="text-gold">*</span>
+                  Apellido <span className="text-brand">*</span>
                 </label>
                 <input
                   type="text"
                   id="apellido"
                   name="Apellido"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
+                  className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand"
                   placeholder="Tu apellido"
                 />
               </div>
@@ -119,41 +119,41 @@ export default function Booking() {
 
             <div>
               <label htmlFor="telefono" className="block text-sm font-medium text-slate-text mb-1.5">
-                Número de teléfono <span className="text-gold">*</span>
+                Número de teléfono <span className="text-brand">*</span>
               </label>
               <input
                 type="tel"
                 id="telefono"
                 name="Teléfono"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
+                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand"
                 placeholder="Ej. +507 6000 0000"
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-slate-text mb-1.5">
-                Correo electrónico <span className="text-gold">*</span>
+                Correo electrónico <span className="text-brand">*</span>
               </label>
               <input
                 type="email"
                 id="email"
                 name="Email"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
+                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand"
                 placeholder="tu@email.com"
               />
             </div>
 
             <div>
               <label htmlFor="servicio" className="block text-sm font-medium text-slate-text mb-1.5">
-                Servicio de interés <span className="text-gold">*</span>
+                Servicio de interés <span className="text-brand">*</span>
               </label>
               <select
                 id="servicio"
                 name="Servicio"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold bg-white"
+                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand bg-white"
               >
                 {servicios.map((opt) => (
                   <option key={opt.value || 'blank'} value={opt.value}>{opt.label}</option>
@@ -163,21 +163,21 @@ export default function Booking() {
 
             <div>
               <label htmlFor="descripcion" className="block text-sm font-medium text-slate-text mb-1.5">
-                Descripción o mensaje <span className="text-gold">*</span>
+                Descripción o mensaje <span className="text-brand">*</span>
               </label>
               <textarea
                 id="descripcion"
                 name="Descripción"
                 required
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold resize-none"
+                className="w-full px-4 py-3 rounded-lg border border-card-border text-slate-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand resize-none"
                 placeholder="Cuéntanos brevemente tu situación o qué te gustaría trabajar en la sesión..."
               />
             </div>
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-navy hover:bg-navy-light text-white font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl btn-secondary font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
             >
               <IconCalendar />
               Enviar solicitud
@@ -186,7 +186,7 @@ export default function Booking() {
         </div>
 
         <p className="mt-6 text-center text-slate-muted text-sm flex items-center justify-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true" />
+          <span className="w-1.5 h-1.5 rounded-full bg-brand" aria-hidden="true" />
           Pago previo requerido para confirmar la sesión. Los datos se envían a yurna@yurnafinance.com.
         </p>
       </div>

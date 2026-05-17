@@ -1,61 +1,51 @@
 'use client'
 
-import Link from 'next/link'
-import { IconArrowRight } from './Icons'
+import { motion } from 'framer-motion'
+import SectionHeader from './SectionHeader'
 
-const problems = [
+const pains = [
   'Facturas, pero no sabes cuánto ganas.',
-  'Declaras por obligación, no con estrategia.',
-  'Negocio o inversiones sin orden financiero.',
-  'Todo depende de ti, sin claridad de números.',
-  'Miedo a errores, multas o malas decisiones.',
+  'Vendes, pero no tienes control de gastos.',
+  'Tu empresa crece, pero tus procesos siguen desordenados.',
+  'Declaras impuestos por obligación, no por estrategia.',
+  'Tomas decisiones sin datos financieros claros.',
 ]
 
 export default function Problem() {
   return (
-    <section className="py-16 md:py-20 bg-cream pattern-dots overflow-hidden" aria-labelledby="problem-heading">
-      <div className="max-w-content mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2
-            id="problem-heading"
-            className="font-display font-semibold text-2xl md:text-3xl text-slate-text"
-          >
-            ¿Te pasa que…?
-          </h2>
-
-          {/* Lista de problemas en una línea compacta */}
-          <div className="mt-6 rounded-xl border border-card-border bg-white px-4 py-3 shadow-card">
-            <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-slate-text text-sm md:text-base" role="list">
-              {problems.map((text, i) => (
-                <li key={i} className="flex items-center gap-x-2 after:content-['•'] after:text-gold/60 after:text-xs last:after:content-['']">
-                  <span>{text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Cierre enfatizado */}
-          <div className="mt-8 p-5 md:p-6 rounded-xl bg-navy text-white">
-            <p className="font-display font-semibold text-lg md:text-xl leading-snug text-center">
-              Cuando no hay orden financiero, hay ansiedad. Y cuando no hay estrategia, no hay crecimiento sostenible.
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/agendar"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-gold hover:bg-gold-light text-navy font-semibold text-sm shadow-gold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
-              >
-                Quiero ordenar mi situación
-                <IconArrowRight />
-              </Link>
-              <Link
-                href="#servicios"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-white/50 text-white hover:bg-white/10 font-semibold text-sm transition-all"
-              >
-                Ver sesiones
-              </Link>
-            </div>
-          </div>
+    <section id="problema" className="section-padding-sm section-surface-alt" aria-labelledby="problem-heading">
+      <div className="section-container">
+        <SectionHeader
+          eyebrow="El problema"
+          title="¿Te resulta familiar?"
+          subtitle="No se trata solo de facturar. Se trata de saber cuánto ganas y hacia dónde va tu dinero."
+        />
+        <h2 id="problem-heading" className="sr-only">Problemas comunes</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          {pains.map((text, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              className="card card-hover p-5 md:p-6"
+            >
+              <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-gold-muted text-gold-dark font-display font-bold text-sm flex items-center justify-center mb-3">
+                {i + 1}
+              </span>
+              <p className="text-slate-text font-medium leading-relaxed">{text}</p>
+            </motion.div>
+          ))}
         </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center text-lg text-slate-muted max-w-2xl mx-auto"
+        >
+          Cuando no hay orden financiero, hay ansiedad. Transforma el caos financiero en claridad.
+        </motion.p>
       </div>
     </section>
   )

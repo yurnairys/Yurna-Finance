@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --navy: #0B1F3B;
-  --gold: #C9A227;
-  --cream: #FDFBF7;
-  --slate-text: #0F172A;
-  --slate-muted: #475569;
+  --navy: #0b1f3b;
+  --emerald: #0d9488;
+  --gold: #c9a227;
+  --cream: #faf9f6;
+  --slate-text: #1a2332;
+  --slate-muted: #5c6478;
 }
 
 html {
@@ -18,48 +19,136 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   color: var(--slate-text);
   background-color: var(--cream);
-}
-
-/* Asegurar texto visible en secciones de fondo claro */
-section#metodo,
-section#servicios,
-section#faq {
-  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--emerald);
   outline-offset: 2px;
 }
 
 ::selection {
-  background-color: rgba(201, 162, 39, 0.2);
+  background-color: rgba(13, 148, 136, 0.18);
 }
 
-/* Subtle pattern overlay */
-.pattern-dots {
-  background-image: radial-gradient(circle at 1px 1px, rgba(201, 162, 39, 0.06) 1px, transparent 0);
-  background-size: 32px 32px;
-}
+@layer components {
+  .section-container {
+    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+  }
 
-/* Título con resaltado dorado y shimmer sutil */
-@keyframes shimmer {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-.hero-title-highlight {
-  background: linear-gradient(
-    90deg,
-    #dbb84a 0%,
-    #f0d875 25%,
-    #C9A227 50%,
-    #f0d875 75%,
-    #dbb84a 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 5s linear infinite;
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .section-padding-sm {
+    @apply py-14 md:py-20;
+  }
+
+  .section-surface {
+    @apply bg-white;
+  }
+
+  .section-surface-alt {
+    @apply bg-cream;
+  }
+
+  .section-header {
+    @apply text-center max-w-3xl mx-auto mb-14 md:mb-16;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.2em] text-emerald mb-4;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    @apply w-8 h-px bg-emerald/40;
+  }
+
+  .section-title {
+    @apply font-display font-bold text-3xl sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem] text-slate-text leading-[1.1] tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply mt-5 text-lg md:text-xl text-slate-muted leading-relaxed;
+  }
+
+  .section-accent-line {
+    @apply w-14 h-1 rounded-full bg-gradient-to-r from-emerald to-gold mx-auto mt-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-emerald text-white font-semibold text-sm md:text-base shadow-emerald transition-all duration-300 hover:bg-emerald-light hover:shadow-cardHover hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-navy text-white font-semibold text-sm md:text-base shadow-soft transition-all duration-300 hover:bg-navy-light hover:shadow-cardHover hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-navy/15 bg-white text-navy font-semibold text-sm md:text-base transition-all duration-300 hover:border-emerald/40 hover:bg-emerald-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/30 bg-white/10 text-white font-semibold text-sm md:text-base backdrop-blur-md transition-all duration-300 hover:bg-white/15 hover:border-white/45 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-emerald-muted text-emerald-dark font-semibold text-sm transition-all duration-200 hover:bg-emerald/15;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-emerald hover:text-emerald-dark transition-colors;
+  }
+
+  .card {
+    @apply rounded-2xl md:rounded-3xl border border-card-border bg-card-bg shadow-card transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-cardHover hover:border-emerald/25 hover:-translate-y-1;
+  }
+
+  .card-featured {
+    @apply rounded-2xl md:rounded-3xl bg-dark-gradient text-white border border-white/10 shadow-elevated;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3.5 rounded-xl border border-card-border text-slate-text placeholder:text-slate-muted/50 bg-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald/25 focus:border-emerald;
+  }
+
+  .form-panel {
+    @apply card p-6 md:p-10 shadow-elevated;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-muted text-emerald-dark text-sm font-medium border border-emerald/15;
+  }
+
+  .badge-dark {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/95 text-sm font-medium backdrop-blur-md border border-white/15;
+  }
+
+  .badge-gold {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-muted text-gold-dark text-sm font-semibold;
+  }
+
+  .hero-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .pattern-grid {
+    background-image:
+      linear-gradient(rgba(11, 31, 59, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 31, 59, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium transition-colors duration-200;
+  }
 }

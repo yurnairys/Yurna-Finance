@@ -5,12 +5,12 @@ import { IconArrowRight } from './Icons'
 
 export default function StatementSection() {
   return (
-    <section className="py-20 md:py-28 lg:py-32 bg-cream pattern-dots overflow-hidden" aria-label="Mensaje central">
+    <section className="section-padding bg-cream pattern-dots overflow-hidden" aria-label="Mensaje central">
       <div className="max-w-[min(96%,1400px)] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <article className="relative rounded-2xl md:rounded-3xl bg-navy text-white text-center shadow-2xl overflow-hidden">
             {/* Línea decorativa dorada */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 md:w-48 h-1 rounded-full bg-gold" aria-hidden />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 md:w-48 h-1 rounded-full bg-brand" aria-hidden />
 
             <div className="px-8 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20">
               {/* Bloque de texto */}
@@ -32,7 +32,7 @@ export default function StatementSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   href="/agendar"
-                  className="inline-flex items-center justify-center gap-2 min-w-[240px] sm:min-w-0 px-8 py-4 rounded-xl bg-gold hover:bg-gold-light text-navy font-semibold text-base shadow-gold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+                  className="inline-flex items-center justify-center gap-2 min-w-[240px] sm:min-w-0 px-8 py-4 rounded-xl btn-primary !text-white font-semibold text-base shadow-brand transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                 >
                   Quiero ordenar mi situación
                   <IconArrowRight />
