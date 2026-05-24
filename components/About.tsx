@@ -36,7 +36,7 @@ export default function About() {
                 <strong className="text-slate-900">ejecución, control y crecimiento</strong>.
               </p>
               <p className="border-l-4 border-brand-yellow pl-5">
-                Trabajo desde una perspectiva integral donde la estrategia, la estructura y la rentabilidad convergen en{' '}
+                Trabajando desde una perspectiva integral donde la estrategia, la estructura y la rentabilidad convergen en{' '}
                 <strong className="text-brand-yellow">resultados medibles</strong>.
               </p>
             </div>
