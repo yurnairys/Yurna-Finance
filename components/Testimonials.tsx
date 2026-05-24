@@ -62,7 +62,7 @@ export default function Testimonials() {
               className="bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm"
             >
               <span className="text-brand-yellow text-3xl font-serif" aria-hidden="true">
-                "
+                &ldquo;
               </span>
               <p className="text-carbon/90 text-lg leading-relaxed mb-6 mt-1">{testimonial.quote}</p>
               <footer className="flex items-center gap-4">

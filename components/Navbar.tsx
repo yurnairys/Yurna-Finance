@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import logoYurna from '@/assets/img/logoYurna.png'
 
 const navLinks = [
   { href: '#inicio', label: 'Inicio' },
@@ -73,12 +72,13 @@ export default function Navbar() {
             className="flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald rounded-lg"
           >
             <Image
-              src={logoYurna}
+              src="/assets/img/logoYurna.png"
               alt="Yurna Finance"
-              width={200}
-              height={60}
+              width={560}
+              height={281}
               className="h-10 sm:h-12 w-auto md:h-14 object-contain bg-transparent"
               priority
+              unoptimized
             />
           </Link>
 

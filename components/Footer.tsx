@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import PrivacyModal from './PrivacyModal'
 import LegalModal from './LegalModal'
-import logoYurna from '@/assets/img/logoYurna.png'
 
 const navLinks = [
   { href: '#inicio', label: 'Inicio' },
@@ -37,11 +36,12 @@ export default function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"><div>
               <Link href="/" className="inline-block">
                 <Image
-                  src={logoYurna}
+                  src="/assets/img/logoYurna.png"
                   alt="Yurna Finance"
-                  width={200}
-                  height={60}
+                  width={560}
+                  height={281}
                   className="h-14 w-auto object-contain bg-transparent"
+                  unoptimized
                 />
               </Link>
               <p className="mt-3 text-sm text-white/75 leading-relaxed max-w-xs">

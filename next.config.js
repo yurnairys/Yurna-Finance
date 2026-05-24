@@ -2,8 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com'],
-    unoptimized: false,
+    remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
+    formats: ['image/avif', 'image/webp'],
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
   },
   async redirects() {
     return [
