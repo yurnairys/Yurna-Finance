@@ -7,7 +7,7 @@ import PrivacyModal from './PrivacyModal'
 import LegalModal from './LegalModal'
 
 const navLinks = [
-  { href: '#servicios', label: 'Servicios' },
+  { href: '/servicios', label: 'Servicios', route: true },
   { href: '#metodo', label: 'Método' },
   { href: '#sobre-mi', label: 'Sobre mí' },
   { href: '#faq', label: 'FAQ' },
@@ -15,11 +15,10 @@ const navLinks = [
 ]
 
 const services = [
-  'Diagnóstico financiero',
-  'Consultoría para empresas',
-  'Finanzas para emprendedores',
-  'Flujo de caja y presupuestos',
-  'Acompañamiento mensual',
+  'Programa Dirección Financiera Integral',
+  'Consulta estratégica inicial',
+  'Diagnóstico financiero y empresarial',
+  'Diseño del programa de acción',
 ]
 
 export default function Footer() {
@@ -37,14 +36,14 @@ export default function Footer() {
                 <Image
                   src="/assets/img/logoYurna.png"
                   alt="Yurna Finance"
-                  width={280}
-                  height={140}
-                  className="h-12 w-auto object-contain"
+                  width={480}
+                  height={250}
+                  className="h-14 w-auto object-contain object-left"
                   unoptimized
                 />
               </Link>
               <p className="mt-4 text-sm text-foreground-muted leading-relaxed max-w-xs">
-                Consultoría financiera para personas, emprendedores y empresas. Estructura, control y ejecución.
+                Dirección financiera estratégica para empresas, emprendedores y profesionales en crecimiento.
               </p>
             </div>
 
@@ -62,9 +61,15 @@ export default function Footer() {
               <ul className="mt-4 space-y-2.5">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a href={link.href} className="text-sm text-foreground-muted hover:text-brand-blue transition-colors">
-                      {link.label}
-                    </a>
+                    {link.route ? (
+                      <Link href={link.href} className="text-sm text-foreground-muted hover:text-brand-blue transition-colors">
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href={link.href} className="text-sm text-foreground-muted hover:text-brand-blue transition-colors">
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -73,10 +78,10 @@ export default function Footer() {
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">Comenzar</h3>
               <p className="mt-4 text-sm text-foreground-muted">
-                Agenda una consulta y descubre cómo puedo ayudarte a ordenar tus finanzas.
+                Aplica al Programa Dirección Financiera Integral y da el primer paso hacia claridad y crecimiento.
               </p>
-              <Link href="/agendar" className="btn-primary mt-4 !text-sm !py-2.5 !px-5">
-                Agendar consulta
+              <Link href="/agendar?tipo=programa" className="btn-primary mt-4 !text-sm !py-2.5 !px-5">
+                Aplicar al Programa
               </Link>
               <ul className="mt-6 space-y-2 text-sm text-foreground-muted">
                 <li>

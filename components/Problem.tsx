@@ -36,6 +36,28 @@ export default function Problem() {
               className="!mb-0 !mx-0 !text-left"
             />
             <h2 id="problem-heading" className="sr-only">Desafíos financieros</h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-6 text-foreground-muted leading-relaxed max-w-md"
+            >
+              Cuando no hay orden financiero, la incertidumbre y el desgaste se vuelven parte del día a día del
+              negocio.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="mt-8 flex items-center gap-3"
+              aria-hidden
+            >
+              <span className="h-px flex-1 max-w-[4rem] bg-brand-blue/40" />
+              <span className="text-xs font-medium uppercase tracking-widest text-foreground-subtle">
+                Claridad · Control · Resultados
+              </span>
+            </motion.div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">

@@ -8,6 +8,7 @@ import { useSearchParams } from 'next/navigation'
 const FORMSUBMIT_URL = 'https://formsubmit.co/yurna@yurnafinance.com'
 
 const TIPO_TO_VALUE: Record<string, string> = {
+  programa: 'Programa Dirección Financiera Integral',
   personal: 'Consulta inicial — Finanzas personales',
   emprendedor: 'Consulta inicial — Emprendedores',
   empresarial: 'Consulta inicial — Empresas',
@@ -19,6 +20,7 @@ const TIPO_TO_VALUE: Record<string, string> = {
 
 const servicios = [
   { value: '', label: 'Selecciona el tipo de consulta' },
+  { value: 'Programa Dirección Financiera Integral', label: 'Programa Dirección Financiera Integral' },
   { value: 'Consulta inicial — Finanzas personales', label: 'Consulta inicial — Finanzas personales' },
   { value: 'Consulta inicial — Emprendedores', label: 'Consulta inicial — Emprendedores' },
   { value: 'Consulta inicial — Empresas', label: 'Consulta inicial — Empresas' },

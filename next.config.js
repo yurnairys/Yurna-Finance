@@ -14,9 +14,9 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/real-estate', destination: '/', permanent: true },
-      { source: '/finanzas', destination: '/#servicios', permanent: true },
-      { source: '/proyectos', destination: '/#servicios', permanent: true },
-      { source: '/servicios-extras', destination: '/#servicios', permanent: true },
+      { source: '/finanzas', destination: '/servicios', permanent: true },
+      { source: '/proyectos', destination: '/servicios', permanent: true },
+      { source: '/servicios-extras', destination: '/servicios', permanent: true },
     ]
   },
 }

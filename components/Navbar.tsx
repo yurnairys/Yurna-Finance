@@ -5,11 +5,21 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
-const navLinks = [
-  { href: '#servicios', label: 'Servicios' },
+type NavLink = { href: string; label: string; route?: boolean }
+
+const homeNavLinks: NavLink[] = [
+  { href: '/servicios', label: 'Servicios', route: true },
   { href: '#para-quien', label: 'Para quién' },
   { href: '#metodo', label: 'Método' },
   { href: '#sobre-mi', label: 'Sobre mí' },
+  { href: '#faq', label: 'FAQ' },
+]
+
+const serviciosNavLinks: NavLink[] = [
+  { href: '#programa', label: 'Programa' },
+  { href: '#incluye', label: 'Qué incluye' },
+  { href: '#metodologia', label: 'Método' },
+  { href: '#para-quien', label: 'Para quién' },
   { href: '#faq', label: 'FAQ' },
 ]
 
@@ -17,6 +27,8 @@ export default function Navbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const isHome = pathname === '/'
+  const isServicios = pathname === '/servicios'
+  const navLinks = isServicios ? serviciosNavLinks : homeNavLinks
 
   useEffect(() => {
     if (pathname !== '/' || typeof window === 'undefined') return
@@ -34,13 +46,23 @@ export default function Navbar() {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  const handleNavClick = (e: React.MouseEvent, linkHref: string) => {
-    if (isHome) {
+  const handleNavClick = (e: React.MouseEvent, linkHref: string, isRoute?: boolean) => {
+    if (isRoute) {
+      setMobileOpen(false)
+      return
+    }
+    if (isHome || isServicios) {
       e.preventDefault()
       scrollToSection(linkHref)
     } else {
       setMobileOpen(false)
     }
+  }
+
+  const resolveHref = (link: NavLink) => {
+    if (link.route) return link.href
+    if (isHome || isServicios) return link.href
+    return link.href.startsWith('#') ? `/${link.href}` : link.href
   }
 
   return (
@@ -59,9 +81,9 @@ export default function Navbar() {
             <Image
               src="/assets/img/logoYurna.png"
               alt="Yurna Finance"
-              width={280}
-              height={140}
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain object-left"
+              width={480}
+              height={250}
+              className="h-11 sm:h-12 md:h-14 w-auto object-contain object-left"
               priority
               unoptimized
             />
@@ -71,8 +93,8 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={isHome ? link.href : `/${link.href}`}
-                onClick={(e) => handleNavClick(e, link.href)}
+                href={resolveHref(link)}
+                onClick={(e) => handleNavClick(e, link.href, link.route)}
                 className="nav-link xl:text-[0.9375rem]"
               >
                 {link.label}
@@ -81,12 +103,20 @@ export default function Navbar() {
           </div>
 
           <div className="hidden items-center gap-2.5 lg:flex">
-            <Link href="/agendar?tipo=diagnostico" className="btn-outline !h-9 !px-4 !text-sm">
-              Diagnóstico
-            </Link>
-            <Link href="/agendar" className="btn-primary !h-9 !px-4 !text-sm">
-              Agendar consulta
-            </Link>
+            {isServicios ? (
+              <Link href="/agendar?tipo=programa" className="btn-primary !h-9 !px-4 !text-sm">
+                Aplicar al Programa
+              </Link>
+            ) : (
+              <>
+                <Link href="/agendar?tipo=diagnostico" className="btn-outline !h-9 !px-4 !text-sm">
+                  Diagnóstico
+                </Link>
+                <Link href="/agendar" className="btn-primary !h-9 !px-4 !text-sm">
+                  Agendar consulta
+                </Link>
+              </>
+            )}
           </div>
 
           <button
@@ -113,20 +143,28 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={isHome ? link.href : `/${link.href}`}
-                onClick={(e) => handleNavClick(e, link.href)}
+                href={resolveHref(link)}
+                onClick={(e) => handleNavClick(e, link.href, link.route)}
                 className="block py-3 font-medium text-foreground hover:text-brand-blue"
               >
                 {link.label}
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t border-border mt-2">
-              <Link href="/agendar?tipo=diagnostico" className="btn-outline w-full text-center">
-                Diagnóstico
-              </Link>
-              <Link href="/agendar" className="btn-primary w-full text-center">
-                Agendar consulta
-              </Link>
+              {isServicios ? (
+                <Link href="/agendar?tipo=programa" className="btn-primary w-full text-center">
+                  Aplicar al Programa
+                </Link>
+              ) : (
+                <>
+                  <Link href="/agendar?tipo=diagnostico" className="btn-outline w-full text-center">
+                    Diagnóstico
+                  </Link>
+                  <Link href="/agendar" className="btn-primary w-full text-center">
+                    Agendar consulta
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         </div>
