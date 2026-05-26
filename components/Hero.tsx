@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import FinancialDashboard from './FinancialDashboard'
+import HeroPhoto from './HeroPhoto'
 import { IconArrowRight } from './Icons'
 
 const container = {
@@ -75,14 +75,9 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className="lg:col-span-6"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <FinancialDashboard />
-          </motion.div>
+          <div className="lg:col-span-6">
+            <HeroPhoto />
+          </div>
         </div>
       </div>
     </section>
