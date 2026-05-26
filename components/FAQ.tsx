@@ -32,7 +32,7 @@ const faqs = [
   {
     question: '¿Cómo se agenda y confirma la consulta?',
     answer:
-      'Completa el formulario de agendar. Te contacto para confirmar fecha, alcance y condiciones de pago antes de la sesión.',
+      'Completa el formulario de agendar. Te contacto para confirmar fecha, alcance y condiciones antes de la sesión.',
   },
 ]
 
@@ -42,7 +42,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="section-padding section-surface-alt" aria-labelledby="faq-heading">
       <div className="section-container max-w-narrow mx-auto">
-        <SectionHeader eyebrow="FAQ" title="Preguntas frecuentes" />
+        <SectionHeader eyebrow="FAQ" title="Preguntas frecuentes" subtitle="Lo esencial sobre cómo trabajamos." />
         <h2 id="faq-heading" className="sr-only">Preguntas frecuentes</h2>
         <dl className="space-y-3">
           {faqs.map((faq, i) => (
@@ -62,15 +62,7 @@ export default function FAQ() {
                   aria-controls={`faq-answer-${i}`}
                 >
                   {faq.question}
-                  <svg
-                    className={`w-5 h-5 flex-shrink-0 text-emerald transition-transform ${openIndex === i ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  <span className="text-brand-blue text-xl leading-none">{openIndex === i ? '−' : '+'}</span>
                 </button>
               </dt>
               <dd id={`faq-answer-${i}`} className={openIndex === i ? 'block' : 'hidden'}>

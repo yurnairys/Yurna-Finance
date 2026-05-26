@@ -7,11 +7,11 @@ import { IconArrowRight } from './Icons'
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
 }
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 },
 }
 
@@ -19,71 +19,72 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-[min(100vh,920px)] flex items-center overflow-hidden text-white -mt-[4.25rem] pt-[calc(4.25rem+3rem)] pb-20 md:pt-[calc(4.25rem+4rem)] md:pb-28"
+      className="relative overflow-hidden bg-white pt-32 pb-16 md:pt-36 md:pb-20 lg:pt-40 lg:pb-28"
       aria-labelledby="hero-heading"
     >
-      {/* Fondo corporativo navy — siempre visible, sin depender de animaciones */}
-      <div className="absolute inset-0 bg-navy-dark" aria-hidden />
-      <div className="absolute inset-0 bg-dark-gradient opacity-95" aria-hidden />
-      <div className="absolute inset-0 bg-hero-mesh" aria-hidden />
+      <div className="hero-pattern absolute inset-0 opacity-50" aria-hidden />
       <div
-        className="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-emerald/20 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="absolute bottom-0 right-0 w-[22rem] h-[22rem] rounded-full bg-gold/10 blur-3xl"
-        aria-hidden
-      />
-      <div className="absolute inset-0 hero-pattern" aria-hidden />
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-navy-dark/40 to-cream pointer-events-none"
+        className="absolute right-0 top-0 h-full w-2/5 bg-gradient-to-l from-brand-blue/[0.05] to-transparent pointer-events-none"
         aria-hidden
       />
 
-      <motion.div className="relative section-container w-full z-10">
-        <motion.div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+      <div className="relative section-container">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-20">
           <motion.div
-            className="text-center lg:text-left"
+            className="lg:col-span-6"
             variants={container}
             initial="hidden"
             animate="show"
           >
-            <motion.span variants={item} className="badge-dark mb-6">
-              Consultoría financiera · Yurna Finance
-            </motion.span>
+            <motion.p variants={item} className="section-label mb-5">
+              Consultoría financiera · Personas · Emprendedores · Empresas
+            </motion.p>
             <motion.h1
               id="hero-heading"
               variants={item}
-              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white leading-[1.1] tracking-tight"
+              className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl xl:text-[4rem] xl:leading-[1.06]"
             >
-              Consultoría financiera para ordenar, optimizar y hacer crecer tu negocio
+              Consultoría financiera para{' '}
+              <span className="text-brand-blue font-semibold">ordenar, optimizar y hacer crecer</span> tu negocio
             </motion.h1>
             <motion.p
               variants={item}
-              className="mt-6 text-lg md:text-xl text-white/85 leading-relaxed max-w-xl mx-auto lg:mx-0"
+              className="mt-6 text-lg text-foreground-muted leading-relaxed max-w-xl md:text-xl"
             >
-              Te ayudo a transformar el desorden financiero en claridad, control y decisiones estratégicas para
-              personas, emprendedores y empresas.
+              Te ayudo a transformar el desorden financiero en claridad, control y decisiones estratégicas con números
+              reales.
             </motion.p>
             <motion.div
               variants={item}
-              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
             >
-              <Link href="/agendar" className="btn-primary px-8 py-4">
-                Agenda una consulta
+              <Link href="/agendar" className="btn-primary px-6 py-3">
+                Agendar consulta
                 <IconArrowRight />
               </Link>
-              <a href="#servicios" className="btn-outline-light">
-                Ver servicios
-              </a>
+              <Link href="/agendar?tipo=diagnostico" className="btn-outline px-6 py-3">
+                Solicitar diagnóstico
+              </Link>
             </motion.div>
-            <motion.p variants={item} className="mt-8 text-sm text-white/60 max-w-md mx-auto lg:mx-0">
-              Estructura, control y ejecución. Finanzas simples para decisiones inteligentes.
-            </motion.p>
+            <motion.div variants={item} className="mt-8 flex flex-wrap gap-2">
+              {['Finanzas', 'Control', 'Rentabilidad'].map((tag) => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
           </motion.div>
-          <FinancialDashboard />
-        </motion.div>
-      </motion.div>
+
+          <motion.div
+            className="lg:col-span-6"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <FinancialDashboard />
+          </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

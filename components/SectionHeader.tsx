@@ -32,17 +32,18 @@ export default function SectionHeader({
       className={`${isCenter ? 'section-header' : 'section-header-left'} ${className}`}
     >
       {eyebrow && (
-        <p className={`section-eyebrow ${isCenter ? 'justify-center' : ''} ${light ? '!text-gold-light before:!bg-gold/40' : ''}`}>
+        <p className={`section-label ${isCenter ? 'text-center' : ''} ${light ? '!text-white/80' : ''}`}>
           {eyebrow}
         </p>
       )}
       <h2 className={light ? 'section-title-light' : 'section-title'}>{title}</h2>
       {subtitle && (
-        <p className={`section-subtitle ${subtitleClassName} ${light ? '!text-white/75' : ''} ${isCenter ? '' : 'max-w-2xl'}`}>
+        <p
+          className={`section-subtitle ${subtitleClassName} ${light ? '!text-white/75' : ''} ${isCenter ? '' : 'max-w-2xl'}`}
+        >
           {subtitle}
         </p>
       )}
-      {isCenter && !light && <div className="section-accent-line" aria-hidden />}
     </motion.div>
   )
 }

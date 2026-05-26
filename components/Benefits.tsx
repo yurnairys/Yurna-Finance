@@ -2,43 +2,61 @@
 
 import { motion } from 'framer-motion'
 import SectionHeader from './SectionHeader'
-import { IconCheck } from './Icons'
 
 const benefits = [
-  'Claridad financiera',
-  'Mejor control de gastos',
-  'Decisiones basadas en datos',
-  'Mayor rentabilidad',
-  'Procesos más ordenados',
-  'Mejor preparación para bancos e inversionistas',
-  'Menos caos administrativo',
-  'Más seguridad al crecer',
+  {
+    title: 'Claridad financiera',
+    text: 'Prioridades claras y visión real de tu situación.',
+  },
+  {
+    title: 'Control de gastos',
+    text: 'Seguimiento estructurado de ingresos y salidas.',
+  },
+  {
+    title: 'Decisiones con datos',
+    text: 'Información confiable para decidir mejor.',
+  },
+  {
+    title: 'Mayor rentabilidad',
+    text: 'Acciones enfocadas en mejorar márgenes.',
+  },
+  {
+    title: 'Procesos ordenados',
+    text: 'Menos caos administrativo en el día a día.',
+  },
+  {
+    title: 'Preparación bancaria',
+    text: 'Números listos para créditos e inversiones.',
+  },
 ]
 
 export default function Benefits() {
   return (
-    <section id="beneficios" className="section-padding section-surface" aria-labelledby="benefits-heading">
+    <section id="beneficios" className="section-padding section-surface-alt" aria-labelledby="benefits-heading">
       <div className="section-container">
         <SectionHeader
           eyebrow="Beneficios"
-          title="Lo que ganas con consultoría financiera"
-          subtitle="Resultados concretos cuando tus finanzas y procesos trabajan a tu favor."
+          title="Por qué confiar en Yurna Finance"
+          subtitle="Consultoría financiera con enfoque en claridad, control y resultados medibles."
         />
         <h2 id="benefits-heading" className="sr-only">Beneficios</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {benefits.map((b, i) => (
             <motion.div
-              key={b}
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              key={b.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              className="flex items-center gap-3 card p-4 card-hover"
+              transition={{ delay: i * 0.05 }}
+              className="card card-hover p-6"
             >
-              <span className="text-emerald flex-shrink-0">
-                <IconCheck />
+              <span className="icon-box mb-4">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
               </span>
-              <span className="text-sm font-semibold text-slate-text">{b}</span>
+              <h3 className="font-semibold text-foreground">{b.title}</h3>
+              <p className="mt-2 text-sm text-foreground-muted leading-relaxed">{b.text}</p>
             </motion.div>
           ))}
         </div>

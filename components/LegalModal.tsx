@@ -35,7 +35,7 @@ export default function LegalModal({ isOpen, onClose }: LegalModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-lg text-slate-muted hover:bg-cream hover:text-slate-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            className="p-2 rounded-lg text-slate-muted hover:bg-background-secondary hover:text-slate-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
             aria-label="Cerrar"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,7 +47,7 @@ export default function LegalModal({ isOpen, onClose }: LegalModalProps) {
           <p><strong className="text-slate-text">Última actualización:</strong> 2025.</p>
           <p>Este aviso legal regula el uso del sitio web de Yurna Finance.</p>
           <h3 className="font-semibold text-slate-text mt-4">1. Datos identificativos</h3>
-          <p>Titular: Yurna Finance. Contacto: <a href="mailto:yurna@yurnafinance.com" className="text-brand hover:underline">yurna@yurnafinance.com</a>. WhatsApp: +507 6897 3414.</p>
+          <p>Titular: Yurna Finance. Contacto: <a href="mailto:yurna@yurnafinance.com" className="text-brand-blue hover:underline">yurna@yurnafinance.com</a>. WhatsApp: +507 6897 3414.</p>
           <h3 className="font-semibold text-slate-text mt-4">2. Objeto y aceptación</h3>
           <p>El acceso y uso del sitio implica la aceptación de este aviso. El contenido tiene finalidad informativa sobre los servicios ofrecidos.</p>
           <h3 className="font-semibold text-slate-text mt-4">3. Propiedad intelectual</h3>

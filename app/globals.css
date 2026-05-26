@@ -3,12 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --navy: #0b1f3b;
-  --emerald: #0d9488;
-  --gold: #c9a227;
-  --cream: #faf9f6;
-  --slate-text: #1a2332;
-  --slate-muted: #5c6478;
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-muted: #f1f5f9;
+  --foreground: #0f172a;
+  --foreground-muted: #64748b;
+  --foreground-subtle: #94a3b8;
+  --brand-blue: #1a5fad;
+  --brand-blue-dark: #1e3a5f;
+  --corporate-blue: #1e3a5f;
+  --corporate-navy: #0f2744;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
 }
 
 html {
@@ -17,19 +23,19 @@ html {
 
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
-  color: var(--slate-text);
-  background-color: var(--cream);
+  color: var(--foreground);
+  background-color: var(--background);
   -webkit-font-smoothing: antialiased;
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--emerald);
+  outline: 2px solid var(--brand-blue);
   outline-offset: 2px;
 }
 
 ::selection {
-  background-color: rgba(13, 148, 136, 0.18);
+  background-color: rgba(26, 95, 173, 0.15);
 }
 
 @layer components {
@@ -46,109 +52,127 @@ button:focus-visible {
   }
 
   .section-surface {
-    @apply bg-white;
+    @apply bg-background;
   }
 
   .section-surface-alt {
-    @apply bg-cream;
+    @apply bg-background-secondary;
+  }
+
+  .section-surface-muted {
+    @apply bg-background-muted;
+  }
+
+  .section-label {
+    @apply text-xs sm:text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-corporate-blue mb-4;
   }
 
   .section-header {
     @apply text-center max-w-3xl mx-auto mb-14 md:mb-16;
   }
 
-  .section-eyebrow {
-    @apply inline-flex items-center gap-2 text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.2em] text-emerald mb-4;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    @apply w-8 h-px bg-emerald/40;
+  .section-header-left {
+    @apply mb-8 md:mb-10;
   }
 
   .section-title {
-    @apply font-display font-bold text-3xl sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem] text-slate-text leading-[1.1] tracking-tight;
+    @apply font-bold text-3xl sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem] text-foreground leading-[1.1] tracking-tight;
+  }
+
+  .section-title-light {
+    @apply font-bold text-3xl sm:text-4xl md:text-[2.65rem] text-white leading-[1.1] tracking-tight;
   }
 
   .section-subtitle {
-    @apply mt-5 text-lg md:text-xl text-slate-muted leading-relaxed;
+    @apply mt-5 text-lg md:text-xl text-foreground-muted leading-relaxed;
   }
 
-  .section-accent-line {
-    @apply w-14 h-1 rounded-full bg-gradient-to-r from-emerald to-gold mx-auto mt-6;
+  .hero-pattern {
+    background-image: radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0);
+    background-size: 32px 32px;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-emerald text-white font-semibold text-sm md:text-base shadow-emerald transition-all duration-300 hover:bg-emerald-light hover:shadow-cardHover hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-navy text-white font-semibold text-sm md:text-base shadow-soft transition-all duration-300 hover:bg-navy-light hover:shadow-cardHover hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 h-10 md:h-11 px-5 md:px-6 rounded-md bg-brand-gradient text-white text-sm font-semibold shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/40 focus-visible:ring-offset-2;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-navy/15 bg-white text-navy font-semibold text-sm md:text-base transition-all duration-300 hover:border-emerald/40 hover:bg-emerald-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 h-10 md:h-11 px-5 md:px-6 rounded-md border border-border-strong bg-white text-corporate-blue text-sm font-semibold transition-all duration-200 hover:border-brand-blue/50 hover:text-brand-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/40 focus-visible:ring-offset-2;
   }
 
   .btn-outline-light {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/30 bg-white/10 text-white font-semibold text-sm md:text-base backdrop-blur-md transition-all duration-300 hover:bg-white/15 hover:border-white/45 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy;
+    @apply inline-flex items-center justify-center gap-2 h-10 md:h-11 px-5 md:px-6 rounded-md border border-white/30 bg-white/10 text-white text-sm font-semibold backdrop-blur-sm transition-all duration-200 hover:bg-white/15 hover:border-white/45 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-corporate-blue;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-emerald-muted text-emerald-dark font-semibold text-sm transition-all duration-200 hover:bg-emerald/15;
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md bg-corporate-blue text-white text-sm font-semibold transition-all duration-200 hover:bg-brand-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/40 focus-visible:ring-offset-2;
   }
 
   .btn-link {
-    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-emerald hover:text-emerald-dark transition-colors;
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-blue-dark transition-colors;
   }
 
   .card {
-    @apply rounded-2xl md:rounded-3xl border border-card-border bg-card-bg shadow-card transition-all duration-300;
+    @apply rounded-xl border border-border bg-white shadow-card transition-all duration-300;
   }
 
   .card-hover {
-    @apply hover:shadow-cardHover hover:border-emerald/25 hover:-translate-y-1;
+    @apply hover:shadow-cardHover hover:border-brand-blue/25 hover:-translate-y-0.5;
   }
 
-  .card-featured {
-    @apply rounded-2xl md:rounded-3xl bg-dark-gradient text-white border border-white/10 shadow-elevated;
+  .tag {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-brand-blue/5 text-brand-blue border border-brand-blue/15;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-foreground-muted transition-colors duration-200 hover:text-brand-blue;
+  }
+
+  .trust-bar {
+    @apply border-y border-border bg-background-secondary py-10 md:py-12;
+  }
+
+  .trust-stat {
+    @apply text-center px-4 py-4 lg:py-0;
+  }
+
+  .trust-stat-value {
+    @apply font-bold text-3xl md:text-4xl text-brand-blue tracking-tight;
+  }
+
+  .trust-stat-label {
+    @apply mt-2 text-sm text-foreground-muted font-medium;
+  }
+
+  .faq-item {
+    @apply rounded-xl border border-border bg-white overflow-hidden transition-shadow duration-200;
+  }
+
+  .faq-item-open {
+    @apply shadow-card border-brand-blue/20;
+  }
+
+  .faq-trigger {
+    @apply w-full flex items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5 text-left font-semibold text-foreground hover:text-brand-blue transition-colors;
+  }
+
+  .faq-content {
+    @apply px-5 pb-5 md:px-6 md:pb-6 text-foreground-muted leading-relaxed text-sm md:text-base;
   }
 
   .input-field {
-    @apply w-full px-4 py-3.5 rounded-xl border border-card-border text-slate-text placeholder:text-slate-muted/50 bg-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald/25 focus:border-emerald;
+    @apply w-full px-4 py-3.5 rounded-lg border border-border text-foreground placeholder:text-foreground-subtle bg-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/25 focus:border-brand-blue;
   }
 
   .form-panel {
-    @apply card p-6 md:p-10 shadow-elevated;
-  }
-
-  .badge {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-muted text-emerald-dark text-sm font-medium border border-emerald/15;
+    @apply card p-6 md:p-10 shadow-md;
   }
 
   .badge-dark {
     @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/95 text-sm font-medium backdrop-blur-md border border-white/15;
   }
 
-  .badge-gold {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-muted text-gold-dark text-sm font-semibold;
-  }
-
-  .hero-pattern {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .pattern-grid {
-    background-image:
-      linear-gradient(rgba(11, 31, 59, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(11, 31, 59, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  .nav-link {
-    @apply relative text-sm font-medium transition-colors duration-200;
+  .icon-box {
+    @apply flex shrink-0 items-center justify-center rounded-lg border h-9 w-9 bg-corporate-blue/10 text-corporate-blue border-corporate-blue/20;
   }
 }

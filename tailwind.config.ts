@@ -9,63 +9,73 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: {
+          DEFAULT: '#ffffff',
+          secondary: '#f8fafc',
+          muted: '#f1f5f9',
+        },
+        foreground: {
+          DEFAULT: '#0f172a',
+          muted: '#64748b',
+          subtle: '#94a3b8',
+        },
+        brand: {
+          blue: '#1a5fad',
+          'blue-dark': '#1e3a5f',
+          violet: '#8b5cf6',
+          navy: '#1a2e4a',
+          green: '#059669',
+        },
+        corporate: {
+          blue: '#1e3a5f',
+          navy: '#0f2744',
+        },
+        border: {
+          DEFAULT: '#e2e8f0',
+          strong: '#cbd5e1',
+        },
+        // aliases for gradual migration
         navy: {
-          DEFAULT: '#0B1F3B',
-          light: '#152D4D',
-          dark: '#061528',
-          soft: '#1E3A5F',
+          DEFAULT: '#1e3a5f',
+          light: '#1a5fad',
+          dark: '#0f2744',
+          soft: '#1a2e4a',
         },
         emerald: {
-          DEFAULT: '#0D9488',
-          light: '#14B8A6',
-          dark: '#0F766E',
-          muted: '#CCFBF1',
-          soft: '#F0FDFA',
-        },
-        gold: {
-          DEFAULT: '#C9A227',
-          light: '#E8D48A',
-          dark: '#A68520',
-          muted: 'rgba(201, 162, 39, 0.14)',
-        },
-        cream: {
-          DEFAULT: '#FAF9F6',
-          dark: '#F3F1EC',
+          DEFAULT: '#059669',
+          light: '#10b981',
+          dark: '#047857',
+          muted: '#ecfdf5',
+          soft: '#f0fdf4',
         },
         slate: {
-          text: '#1A2332',
-          muted: '#5C6478',
+          text: '#0f172a',
+          muted: '#64748b',
         },
         card: {
-          bg: '#FFFFFF',
-          border: '#E5E3DC',
+          bg: '#ffffff',
+          border: '#e2e8f0',
         },
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
         body: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
-        content: '76rem',
+        content: '80rem',
         narrow: '48rem',
         form: '40rem',
       },
-      borderRadius: {
-        '4xl': '2rem',
-      },
       boxShadow: {
-        card: '0 1px 2px 0 rgb(11 31 59 / 0.04), 0 8px 24px -4px rgb(11 31 59 / 0.07)',
-        cardHover: '0 16px 40px -8px rgb(11 31 59 / 0.12), 0 4px 16px -4px rgb(13 148 136 / 0.08)',
-        soft: '0 2px 12px -2px rgb(11 31 59 / 0.06)',
-        emerald: '0 4px 20px -4px rgba(13, 148, 136, 0.3)',
-        elevated: '0 24px 56px -12px rgb(11 31 59 / 0.14)',
+        card: '0 1px 3px 0 rgb(15 23 42 / 0.06), 0 4px 16px -2px rgb(15 23 42 / 0.08)',
+        cardHover: '0 8px 30px -4px rgb(26 95 173 / 0.15), 0 4px 12px -2px rgb(15 23 42 / 0.08)',
+        soft: '0 2px 8px -2px rgb(15 23 42 / 0.06)',
+        md: '0 4px 6px -1px rgb(15 23 42 / 0.08), 0 2px 4px -2px rgb(15 23 42 / 0.06)',
       },
       backgroundImage: {
+        'brand-gradient': 'linear-gradient(to right, #1a5fad, #1e3a5f)',
         'hero-mesh':
-          'radial-gradient(ellipse 80% 60% at 20% 20%, rgba(13, 148, 136, 0.12) 0%, transparent 50%), radial-gradient(ellipse 60% 50% at 80% 80%, rgba(201, 162, 39, 0.08) 0%, transparent 50%)',
-        'dark-gradient': 'linear-gradient(160deg, #0B1F3B 0%, #152D4D 55%, #1E3A5F 100%)',
-        'emerald-gradient': 'linear-gradient(135deg, #0D9488 0%, #14B8A6 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #C9A227 0%, #E8D48A 100%)',
+          'radial-gradient(ellipse 80% 60% at 80% 20%, rgba(26, 95, 173, 0.06) 0%, transparent 50%)',
       },
     },
   },

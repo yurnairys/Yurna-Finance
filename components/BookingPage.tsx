@@ -56,7 +56,7 @@ export default function BookingPage() {
 
   if (successPage) {
     return (
-      <section className="min-h-screen flex items-center justify-center py-20 bg-cream pattern-dots">
+      <section className="min-h-screen flex items-center justify-center py-20 bg-background-secondary">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -68,15 +68,15 @@ export default function BookingPage() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-              className="w-20 h-20 rounded-2xl bg-emerald-muted flex items-center justify-center text-emerald mx-auto"
+              className="w-20 h-20 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mx-auto"
             >
               <IconCheck />
             </motion.div>
-            <h2 className="mt-6 font-display font-semibold text-3xl text-slate-text">¡Mensaje enviado!</h2>
-            <p className="mt-4 text-slate-muted text-lg">
+            <h2 className="mt-6 font-semibold text-3xl text-foreground">¡Mensaje enviado!</h2>
+            <p className="mt-4 text-foreground-muted text-lg">
               Te contactaré pronto para confirmar tu consulta. Revisa tu correo y WhatsApp.
             </p>
-            <p className="mt-6 text-slate-muted text-sm">
+            <p className="mt-6 text-foreground-muted text-sm">
               Coordinaremos fecha, hora y detalles de la consulta inicial.
             </p>
             <motion.a
@@ -95,10 +95,9 @@ export default function BookingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-cream pattern-dots">
-      {/* Hero compacto + formulario en flujo único */}
-      <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-dark-gradient overflow-hidden pattern-grid">
-        <div className="absolute inset-0 bg-hero-glow pointer-events-none opacity-60" aria-hidden="true" />
+    <div className="min-h-screen bg-background-secondary">
+      <section className="relative pt-32 pb-12 md:pt-36 md:pb-16 bg-white overflow-hidden border-b border-border">
+        <div className="hero-pattern absolute inset-0 opacity-40 pointer-events-none" aria-hidden />
         <div className="relative section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,14 +105,11 @@ export default function BookingPage() {
             transition={{ duration: 0.5 }}
             className="text-center max-w-2xl mx-auto"
           >
-            <span className="badge-dark mb-4">
-              <IconCalendar />
-              Consultoría financiera
-            </span>
-            <h1 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
-              Agenda tu consulta inicial
+            <p className="section-label mb-4">Consultoría financiera</p>
+            <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
+              Agenda tu <span className="text-brand-blue">consulta inicial</span>
             </h1>
-            <p className="mt-4 text-white/90 text-base md:text-lg">
+            <p className="mt-4 text-foreground-muted text-base md:text-lg">
               Cuéntame tu situación y coordinamos una primera reunión para revisar cómo puedo ayudarte con claridad financiera.
             </p>
           </motion.div>
@@ -139,7 +135,7 @@ export default function BookingPage() {
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="nombre" className="block text-sm font-semibold text-slate-text mb-1.5">
-                  Nombre <span className="text-emerald">*</span>
+                  Nombre <span className="text-brand-blue">*</span>
                 </label>
                 <input
                   type="text"
@@ -152,7 +148,7 @@ export default function BookingPage() {
               </div>
               <div>
                 <label htmlFor="apellido" className="block text-sm font-semibold text-slate-text mb-1.5">
-                  Apellido <span className="text-emerald">*</span>
+                  Apellido <span className="text-brand-blue">*</span>
                 </label>
                 <input
                   type="text"
@@ -167,7 +163,7 @@ export default function BookingPage() {
 
             <div>
               <label htmlFor="telefono" className="block text-sm font-semibold text-slate-text mb-1.5">
-                Teléfono <span className="text-emerald">*</span>
+                Teléfono <span className="text-brand-blue">*</span>
               </label>
               <input
                 type="tel"
@@ -181,7 +177,7 @@ export default function BookingPage() {
 
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-slate-text mb-1.5">
-                Correo electrónico <span className="text-emerald">*</span>
+                Correo electrónico <span className="text-brand-blue">*</span>
               </label>
               <input
                 type="email"
@@ -195,7 +191,7 @@ export default function BookingPage() {
 
             <div>
               <label htmlFor="servicio" className="block text-sm font-semibold text-slate-text mb-1.5">
-                Tipo de consulta <span className="text-emerald">*</span>
+                Tipo de consulta <span className="text-brand-blue">*</span>
                 {isSessionLocked && (
                   <span className="ml-2 text-xs font-normal text-slate-muted">(seleccionado desde la página de servicios)</span>
                 )}
@@ -219,7 +215,7 @@ export default function BookingPage() {
 
             <div>
               <label htmlFor="descripcion" className="block text-sm font-semibold text-slate-text mb-1.5">
-                ¿En qué te podemos ayudar? <span className="text-emerald">*</span>
+                ¿En qué te podemos ayudar? <span className="text-brand-blue">*</span>
               </label>
               <textarea
                 id="descripcion"
@@ -235,7 +231,7 @@ export default function BookingPage() {
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl btn-primary !text-white font-bold text-lg shadow-emerald focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2"
+              className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-md btn-primary font-bold text-lg"
             >
               <IconCalendar />
               Enviar solicitud
@@ -243,7 +239,7 @@ export default function BookingPage() {
           </motion.form>
 
           <p className="mt-6 text-center text-slate-muted text-sm">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald mr-1.5 align-middle" aria-hidden="true" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-blue mr-1.5 align-middle" aria-hidden="true" />
             Pago previo requerido para confirmar. Respuesta a yurna@yurnafinance.com.
           </p>
         </div>

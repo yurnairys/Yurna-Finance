@@ -6,25 +6,17 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
+  { href: '#para-quien', label: 'Para quién' },
   { href: '#metodo', label: 'Método' },
-  { href: '#para-quien', label: 'Para quién es' },
-  { href: '#casos', label: 'Casos de uso' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '#sobre-mi', label: 'Sobre mí' },
+  { href: '#faq', label: 'FAQ' },
 ]
 
 export default function Navbar() {
   const pathname = usePathname()
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const isHome = pathname === '/'
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     if (pathname !== '/' || typeof window === 'undefined') return
@@ -51,100 +43,91 @@ export default function Navbar() {
     }
   }
 
-  const isHeroHeader = isHome && !scrolled
-  const isLight = scrolled
-
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isLight
-          ? 'bg-white/95 backdrop-blur-xl shadow-soft border-b border-card-border'
-          : isHeroHeader
-            ? 'bg-navy-dark/80 backdrop-blur-lg border-b border-white/10'
-            : 'bg-navy/90 backdrop-blur-md border-b border-white/10'
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-white/90 py-4 backdrop-blur-sm lg:py-5">
       <div className="section-container">
-        <div className="flex items-center justify-between gap-2 sm:gap-3 h-16 md:h-[4.25rem] min-w-0">
+        <nav
+          className="flex min-h-[56px] items-center justify-between gap-4 sm:min-h-[64px]"
+          aria-label="Principal"
+        >
           <Link
             href="/"
             onClick={(e) => isHome && (e.preventDefault(), scrollToSection('#inicio'))}
-            className="flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald rounded-lg"
+            className="inline-flex shrink-0 items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/40 rounded-md"
+            aria-label="Yurna Finance — Inicio"
           >
             <Image
               src="/assets/img/logoYurna.png"
               alt="Yurna Finance"
-              width={560}
-              height={281}
-              className="h-10 sm:h-12 w-auto md:h-14 object-contain bg-transparent"
+              width={280}
+              height={140}
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain object-left"
               priority
               unoptimized
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7" aria-label="Principal">
+          <div className="hidden items-center gap-8 lg:flex xl:gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={isHome ? link.href : `/${link.href}`}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`nav-link ${
-                  isLight ? 'text-slate-muted hover:text-emerald' : 'text-white/90 hover:text-white'
-                }`}
+                className="nav-link xl:text-[0.9375rem]"
               >
                 {link.label}
               </Link>
             ))}
-          </nav>
+          </div>
 
-          <div className="hidden lg:block shrink-0">
-            <Link href="/agendar" className="btn-primary !px-6 !py-2.5 !text-sm whitespace-nowrap">
-              Agenda una consulta
+          <div className="hidden items-center gap-2.5 lg:flex">
+            <Link href="/agendar?tipo=diagnostico" className="btn-outline !h-9 !px-4 !text-sm">
+              Diagnóstico
+            </Link>
+            <Link href="/agendar" className="btn-primary !h-9 !px-4 !text-sm">
+              Agendar consulta
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden shrink-0">
-            <Link
-              href="/agendar"
-              className="btn-primary !px-3 !py-2 !text-xs sm:!px-4 sm:!text-sm whitespace-nowrap"
-            >
-              <span className="sm:hidden">Agendar</span>
-              <span className="hidden sm:inline">Agenda una consulta</span>
-            </Link>
-            <button
-              type="button"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-2.5 rounded-xl ${
-                isLight ? 'text-slate-text hover:bg-emerald-soft' : 'text-white hover:bg-white/10'
-              }`}
-              aria-expanded={mobileOpen}
-              aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-        </div>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+          >
+            <span
+              className={`h-0.5 w-5 bg-foreground transition-all ${mobileOpen ? 'translate-y-2 rotate-45' : ''}`}
+            />
+            <span className={`h-0.5 w-5 bg-foreground transition-all ${mobileOpen ? 'opacity-0' : ''}`} />
+            <span
+              className={`h-0.5 w-5 bg-foreground transition-all ${mobileOpen ? '-translate-y-2 -rotate-45' : ''}`}
+            />
+          </button>
+        </nav>
       </div>
 
       {mobileOpen && (
-        <div className={`lg:hidden border-t ${isLight ? 'bg-white border-card-border' : 'bg-navy border-white/10'}`}>
+        <div className="lg:hidden border-t border-border bg-white">
           <nav className="section-container py-4 space-y-1" aria-label="Menú móvil">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={isHome ? link.href : `/${link.href}`}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`block py-3 font-medium ${isLight ? 'text-slate-text hover:text-emerald' : 'text-white/90 hover:text-emerald-light'}`}
+                className="block py-3 font-medium text-foreground hover:text-brand-blue"
               >
                 {link.label}
               </Link>
             ))}
+            <div className="flex flex-col gap-2 pt-4 border-t border-border mt-2">
+              <Link href="/agendar?tipo=diagnostico" className="btn-outline w-full text-center">
+                Diagnóstico
+              </Link>
+              <Link href="/agendar" className="btn-primary w-full text-center">
+                Agendar consulta
+              </Link>
+            </div>
           </nav>
         </div>
       )}

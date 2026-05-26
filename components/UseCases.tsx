@@ -28,15 +28,15 @@ const cases = [
 
 export default function UseCases() {
   return (
-    <section id="casos" className="section-padding section-surface" aria-labelledby="cases-heading">
+    <section id="casos" className="section-padding section-surface-muted" aria-labelledby="cases-heading">
       <div className="section-container">
         <SectionHeader
           eyebrow="Casos de uso"
           title="Situaciones donde la consultoría marca la diferencia"
-          subtitle="Ejemplos reales del tipo de retos que resolvemos con estructura y estrategia financiera."
+          subtitle="Ejemplos del tipo de retos que resolvemos con estructura y estrategia financiera."
         />
         <h2 id="cases-heading" className="sr-only">Casos de uso</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
           {cases.map((c, i) => (
             <motion.article
               key={c.title}
@@ -44,14 +44,11 @@ export default function UseCases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="card p-6 md:p-8 card-hover"
+              className="card card-hover p-6 md:p-8"
             >
-              <h3 className="font-display font-semibold text-xl text-slate-text">{c.title}</h3>
-              <p className="mt-3 text-slate-muted text-sm leading-relaxed">{c.description}</p>
-              <p className="mt-4 text-sm font-semibold text-emerald-dark flex items-start gap-2">
-                <span className="text-gold">→</span>
-                {c.result}
-              </p>
+              <h3 className="font-semibold text-lg text-foreground">{c.title}</h3>
+              <p className="mt-3 text-sm text-foreground-muted leading-relaxed">{c.description}</p>
+              <p className="mt-4 text-sm font-semibold text-brand-blue">{c.result}</p>
             </motion.article>
           ))}
         </div>

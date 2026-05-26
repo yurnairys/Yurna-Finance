@@ -29,7 +29,7 @@ export default function FloatingButtons() {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.25 }}
             onClick={scrollToTop}
-            className="fixed left-4 bottom-6 md:left-6 md:bottom-8 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-navy text-white shadow-elevated hover:bg-emerald hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2 transition-all duration-200"
+            className="fixed left-4 bottom-6 md:left-6 md:bottom-8 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-corporate-blue text-white shadow-md hover:bg-brand-blue hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/40 focus-visible:ring-offset-2 transition-all duration-200"
             aria-label="Volver arriba"
           >
             <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
