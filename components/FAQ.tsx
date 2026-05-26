@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionHeader from './SectionHeader'
+import { TitleAccent } from './TitleAccent'
 
 const faqs = [
   {
@@ -42,7 +43,15 @@ export default function FAQ() {
   return (
     <section id="faq" className="section-padding section-surface-alt" aria-labelledby="faq-heading">
       <div className="section-container max-w-narrow mx-auto">
-        <SectionHeader eyebrow="FAQ" title="Preguntas frecuentes" subtitle="Lo esencial sobre cómo trabajamos." />
+        <SectionHeader
+          eyebrow="FAQ"
+          title={
+            <>
+              <TitleAccent>Preguntas</TitleAccent> frecuentes
+            </>
+          }
+          subtitle="Lo esencial sobre cómo trabajamos."
+        />
         <h2 id="faq-heading" className="sr-only">Preguntas frecuentes</h2>
         <dl className="space-y-3">
           {faqs.map((faq, i) => (

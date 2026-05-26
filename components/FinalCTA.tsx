@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { IconArrowRight } from './Icons'
+import { TitleAccent } from './TitleAccent'
 
 export default function FinalCTA() {
   return (
@@ -27,7 +28,7 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           className="section-title-light max-w-3xl mx-auto"
         >
-          ¿Listo para ordenar tus finanzas y crecer con claridad?
+          ¿Listo para ordenar tus finanzas y <TitleAccent variant="on-dark">crecer con claridad</TitleAccent>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -45,7 +46,7 @@ export default function FinalCTA() {
           transition={{ delay: 0.2 }}
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Link href="/agendar" className="btn-primary !bg-white !text-corporate-blue hover:!brightness-100 hover:!bg-white/95">
+          <Link href="/agendar" className="btn-primary-on-dark">
             Agendar consulta
             <IconArrowRight />
           </Link>

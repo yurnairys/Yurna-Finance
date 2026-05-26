@@ -16,7 +16,7 @@ export default function HeroPhoto() {
           src="/assets/img/yurna-hero.jpg"
           alt="Yurnairys Piñango — Consultora financiera"
           fill
-          className="object-cover object-[center_12%]"
+          className="object-cover object-[center_20%]"
           sizes="(max-width: 1024px) 90vw, 480px"
           priority
           unoptimized

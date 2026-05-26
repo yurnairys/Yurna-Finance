@@ -101,7 +101,12 @@ button:focus-visible {
   }
 
   .btn-outline-light {
-    @apply inline-flex items-center justify-center gap-2 h-10 md:h-11 px-5 md:px-6 rounded-md border border-white/30 bg-white/10 text-white text-sm font-semibold backdrop-blur-sm transition-all duration-200 hover:bg-white/15 hover:border-white/45 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-corporate-blue;
+    @apply inline-flex items-center justify-center gap-2 h-10 md:h-11 px-5 md:px-6 rounded-md border-2 border-white/50 bg-transparent text-white text-sm font-semibold transition-all duration-200 hover:bg-white/15 hover:border-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-corporate-blue;
+  }
+
+  /* Botón principal sobre fondos azul/navy (texto oscuro sobre blanco) */
+  .btn-primary-on-dark {
+    @apply inline-flex items-center justify-center gap-2 h-10 md:h-11 px-5 md:px-6 rounded-md bg-white text-corporate-navy text-sm font-semibold shadow-md transition-all duration-200 hover:bg-white/95 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-corporate-blue;
   }
 
   .btn-secondary {

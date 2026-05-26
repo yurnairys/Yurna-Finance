@@ -20,6 +20,7 @@ const serviciosNavLinks: NavLink[] = [
   { href: '#incluye', label: 'Qué incluye' },
   { href: '#metodologia', label: 'Método' },
   { href: '#para-quien', label: 'Para quién' },
+  { href: '#sobre-yurna', label: 'Sobre Yurna' },
   { href: '#faq', label: 'FAQ' },
 ]
 

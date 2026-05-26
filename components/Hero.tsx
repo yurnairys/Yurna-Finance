@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import HeroPhoto from './HeroPhoto'
 import { IconArrowRight } from './Icons'
+import { TitleAccent } from './TitleAccent'
 
 const container = {
   hidden: { opacity: 0 },
@@ -44,8 +45,7 @@ export default function Hero() {
               variants={item}
               className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl xl:text-[4rem] xl:leading-[1.06]"
             >
-              Estrategia financiera para{' '}
-              <span className="text-brand-blue font-semibold">hacer crecer</span> tu proyecto y empresa
+              Estrategia financiera para <TitleAccent>hacer crecer</TitleAccent> tu proyecto y empresa
             </motion.h1>
             <motion.p
               variants={item}

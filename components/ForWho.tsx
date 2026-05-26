@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import SectionHeader from './SectionHeader'
+import { TitleAccent } from './TitleAccent'
 
 const audiences = [
   'Emprendedores que quieren saber si su negocio es rentable',
@@ -19,7 +20,11 @@ export default function ForWho() {
       <div className="section-container">
         <SectionHeader
           eyebrow="Para quién es"
-          title="Experiencia adaptada a distintos perfiles y etapas"
+          title={
+            <>
+              Experiencia adaptada a <TitleAccent>distintos perfiles</TitleAccent> y etapas
+            </>
+          }
           subtitle="Metodología flexible para emprendedores, empresas y profesionales que buscan orden financiero."
         />
         <h2 id="forwho-heading" className="sr-only">Para quién es</h2>

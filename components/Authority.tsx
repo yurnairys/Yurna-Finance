@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import SectionHeader from './SectionHeader'
+import { TitleAccent } from './TitleAccent'
 import { IconArrowRight } from './Icons'
 
 export default function Authority() {
@@ -12,7 +13,11 @@ export default function Authority() {
       <div className="section-container">
         <SectionHeader
           eyebrow="Equipo"
-          title="Visión financiera con ejecución real"
+          title={
+            <>
+              Visión financiera con <TitleAccent>ejecución real</TitleAccent>
+            </>
+          }
           subtitle="Consultora especializada en administración, finanzas y toma de decisiones estratégicas."
         />
         <h2 id="authority-heading" className="sr-only">Sobre Yurnairys Piñango</h2>
@@ -45,6 +50,17 @@ export default function Authority() {
           >
             <h3 className="text-xl font-bold text-foreground">Yurnairys Piñango</h3>
             <p className="mt-1 text-sm font-semibold text-brand-blue">Consultora Financiera</p>
+            <p className="mt-2 text-sm text-foreground-muted">
+              <a
+                href="https://www.splbusiness.com/#equipo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-brand-blue hover:underline"
+              >
+                Socia Financiera / Comercial en SPL Business
+              </a>
+              <span className="text-foreground-subtle"> — finanzas, control operativo y gestión comercial.</span>
+            </p>
             <p className="mt-4 text-foreground-muted leading-relaxed">
               Soy consultora financiera con experiencia en administración, contabilidad, finanzas y gestión de
               proyectos. He acompañado empresas en organización financiera, control administrativo, análisis de

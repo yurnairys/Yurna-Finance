@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import SectionHeader from './SectionHeader'
+import { TitleAccent } from './TitleAccent'
 
 const benefits = [
   {
@@ -36,7 +37,11 @@ export default function Benefits() {
       <div className="section-container">
         <SectionHeader
           eyebrow="Beneficios"
-          title="Por qué confiar en Yurna Finance"
+          title={
+            <>
+              Por qué confiar en <TitleAccent>Yurna Finance</TitleAccent>
+            </>
+          }
           subtitle="Consultoría financiera con enfoque en claridad, control y resultados medibles."
         />
         <h2 id="benefits-heading" className="sr-only">Beneficios</h2>

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import SectionHeader from './SectionHeader'
+import { TitleAccent } from './TitleAccent'
 
 const steps = [
   {
@@ -38,7 +39,11 @@ export default function Method() {
         <SectionHeader
           light
           eyebrow="Proceso"
-          title="Un método claro de principio a fin"
+          title={
+            <>
+              Un método <TitleAccent variant="on-dark">claro</TitleAccent> de principio a fin
+            </>
+          }
           subtitle="Cuatro etapas. Diagnóstico, organización, estrategia y resultados medibles."
         />
         <h2 id="method-heading" className="sr-only">Método de trabajo</h2>

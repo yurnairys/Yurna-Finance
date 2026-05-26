@@ -5,10 +5,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import SectionHeader from '@/components/SectionHeader'
+import { TitleAccent } from '@/components/TitleAccent'
 import { IconArrowRight } from '@/components/Icons'
 
 const APPLY_URL = '/agendar?tipo=programa'
 const DIAGNOSTICO_URL = '#diagnostico'
+const SPL_URL = 'https://www.splbusiness.com'
+const SPL_EQUIPO_URL = 'https://www.splbusiness.com/#equipo'
 
 const forYou = [
   'Ya generas ingresos, pero no tienes claridad financiera.',
@@ -147,7 +150,7 @@ const faqs = [
   },
   {
     q: '¿Qué papel tiene SPL Business?',
-    a: 'SPL Business es una alianza estratégica que se integra cuando el diagnóstico muestra que el negocio necesita soluciones más amplias en automatización, presencia digital, procesos, estructura organizativa o expansión comercial.',
+    a: 'SPL Business es la alianza estratégica de consultoría empresarial, digital y de crecimiento. Cuando el diagnóstico lo requiere, integramos automatización, presencia digital, procesos y expansión comercial. Yurnairys Piñango es Socia Financiera / Comercial en el equipo de SPL, lo que conecta la dirección financiera de Yurna Finance con la visión integral de crecimiento de la firma.',
   },
   {
     q: '¿Qué necesito para iniciar?',
@@ -207,10 +210,10 @@ export default function ProgramaPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
             >
-              <p className="section-label">Programa Dirección Financiera Integral</p>
+              <p className="section-label">Programa</p>
               <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.06]">
-                Dirección financiera estratégica para negocios que quieren{' '}
-                <span className="text-brand-blue">crecer con orden</span>
+                Programa <TitleAccent>estratégico</TitleAccent> con{' '}
+                <TitleAccent>inteligencia financiera integral</TitleAccent>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-foreground-muted leading-relaxed">
                 En Yurna Finance ayudamos a empresas, emprendedores y profesionales a diagnosticar, ordenar y
@@ -243,12 +246,13 @@ export default function ProgramaPage() {
             >
               <div className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-2xl md:rounded-3xl border border-border shadow-soft">
                 <Image
-                  src="/assets/img/finanza-analisis.jpg"
-                  alt="Análisis financiero y dirección estratégica para empresas en crecimiento"
+                  src="/assets/img/yurna.jpg"
+                  alt="Yurnairys Piñango — Dirección financiera estratégica"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_20%]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
+                  unoptimized
                 />
                 <div
                   className="absolute inset-0 bg-gradient-to-t from-corporate-navy/50 via-transparent to-transparent pointer-events-none"
@@ -260,6 +264,20 @@ export default function ProgramaPage() {
         </div>
       </section>
 
+      {/* Propuesta de valor */}
+      <section className="section-padding-sm border-y border-border bg-background-secondary">
+        <div className="section-container max-w-3xl mx-auto text-center">
+          <p className="text-foreground-muted leading-relaxed text-base md:text-lg">
+            En Yurna Finance ayudamos a empresas, emprendedores y profesionales a entender la realidad financiera
+            de su negocio, ordenar sus números, detectar fugas, diseñar procesos y construir una ruta de crecimiento
+            más clara.
+          </p>
+          <p className="mt-4 text-foreground font-semibold text-lg md:text-xl">
+            No solo organizamos números. Diseñamos la estructura que permite que el negocio crezca.
+          </p>
+        </div>
+      </section>
+
       {/* 2. Filtro */}
       <section id="filtro" className="section-padding-sm section-surface-alt">
         <div className="section-container">
@@ -268,7 +286,12 @@ export default function ProgramaPage() {
               <SectionHeader
                 align="left"
                 eyebrow="Selección estratégica"
-                title="Este programa no es para todos. Es para negocios listos para avanzar."
+                title={
+                  <>
+                    Este programa no es para todos. Es para negocios listos para{' '}
+                    <TitleAccent>avanzar</TitleAccent>.
+                  </>
+                }
                 subtitle="Yurna Finance trabaja con empresas, emprendedores y profesionales que valoran la dirección financiera como una inversión estratégica, no como un gasto operativo."
                 className="!mb-8 !mx-0 !text-left"
               />
@@ -292,7 +315,12 @@ export default function ProgramaPage() {
         <div className="section-container">
           <SectionHeader
             eyebrow="El problema"
-            title="Muchas empresas no tienen un problema de ventas. Tienen un problema de estructura."
+            title={
+              <>
+                Muchas empresas no tienen un problema de ventas. Tienen un problema de{' '}
+                <TitleAccent>estructura</TitleAccent>.
+              </>
+            }
             subtitle="Un negocio puede vender, facturar y moverse todos los días, pero aun así no tener liquidez, rentabilidad ni dirección clara."
           />
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto items-center -mt-4">
@@ -301,7 +329,10 @@ export default function ProgramaPage() {
                 El problema muchas veces no está solo en cuánto dinero entra, sino en cómo se administra, cómo se
                 controla, cómo se mide y qué tan alineados están los procesos con el crecimiento.
               </p>
-              <ul className="mt-6 space-y-2.5" role="list">
+              <h3 className="mt-6 text-sm font-semibold uppercase tracking-wider text-brand-blue">
+                Problemas frecuentes:
+              </h3>
+              <ul className="mt-4 space-y-2.5" role="list">
                 {problems.map((p, i) => (
                   <motion.li
                     key={p}
@@ -345,7 +376,12 @@ export default function ProgramaPage() {
         <div className="section-container max-w-3xl mx-auto text-center">
           <SectionHeader
             eyebrow="La solución"
-            title="Ordenamos las finanzas mientras diseñamos la estructura que permite crecer."
+            title={
+              <>
+                Ordenamos las finanzas mientras diseñamos la <TitleAccent>estructura</TitleAccent> que permite
+                crecer.
+              </>
+            }
           />
           <p className="text-foreground-muted leading-relaxed -mt-6">
             En Yurna Finance comenzamos desde los números porque allí se revela la realidad del negocio: qué entra,
@@ -372,7 +408,10 @@ export default function ProgramaPage() {
         <div className="section-container">
           <div className="card p-8 md:p-12 lg:p-14 max-w-4xl mx-auto text-center shadow-cardHover border-brand-blue/20">
             <p className="section-label justify-center">Servicio único</p>
-            <h2 className="section-title text-2xl md:text-4xl">Programa Dirección Financiera Integral</h2>
+            <h2 className="section-title text-2xl md:text-4xl">
+              Programa <TitleAccent>estratégico</TitleAccent> con{' '}
+              <TitleAccent>inteligencia financiera integral</TitleAccent>
+            </h2>
             <p className="mt-3 text-lg font-semibold text-brand-blue">
               Finanzas, estructura y expansión para negocios en crecimiento.
             </p>
@@ -412,7 +451,11 @@ export default function ProgramaPage() {
       <section id="incluye" className="section-padding section-surface-muted">
         <div className="section-container">
           <SectionHeader
-            title="¿Qué incluye el Programa Dirección Financiera Integral?"
+            title={
+              <>
+                ¿Qué incluye el programa de <TitleAccent>inteligencia financiera integral</TitleAccent>?
+              </>
+            }
             subtitle="Un recorrido integral desde la consulta estratégica hasta la visión de crecimiento empresarial."
           />
           <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
@@ -439,7 +482,15 @@ export default function ProgramaPage() {
       <section id="metodologia" className="relative overflow-hidden bg-corporate-navy py-20 md:py-28 lg:py-32">
         <div className="hero-pattern absolute inset-0 opacity-[0.07]" aria-hidden />
         <div className="relative section-container">
-          <SectionHeader light eyebrow="Metodología" title="Nuestra metodología" />
+          <SectionHeader
+            light
+            eyebrow="Metodología"
+            title={
+              <>
+                Nuestra <TitleAccent variant="on-dark">metodología</TitleAccent>
+              </>
+            }
+          />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {steps.map((s, i) => (
               <motion.div
@@ -448,9 +499,7 @@ export default function ProgramaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className={`rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 ${
-                  i === 4 ? 'lg:col-span-3 lg:max-w-2xl lg:mx-auto lg:w-full' : ''
-                }`}
+                className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8"
               >
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-blue text-white font-bold">
                   {s.step}
@@ -465,10 +514,14 @@ export default function ProgramaPage() {
 
       {/* 8. SPL Business */}
       <section id="alianza" className="section-padding section-surface">
-        <div className="section-container max-w-3xl mx-auto">
+        <div className="section-container max-w-4xl mx-auto">
           <SectionHeader
             eyebrow="Alianza estratégica"
-            title="Finanzas como punto de partida. Crecimiento como visión integral."
+            title={
+              <>
+                Finanzas como punto de partida. <TitleAccent>Crecimiento</TitleAccent> como visión integral.
+              </>
+            }
           />
           <p className="text-foreground-muted leading-relaxed text-center -mt-6">
             Yurna Finance lidera la dirección financiera del proceso. Sin embargo, entendemos que muchos negocios no
@@ -476,20 +529,80 @@ export default function ProgramaPage() {
             gestionan.
           </p>
           <p className="mt-4 text-foreground-muted leading-relaxed text-center">
-            Por eso, cuando el diagnóstico lo requiere, Yurna Finance integra su alianza con SPL Business para
-            acompañar soluciones más completas en automatización de procesos, presencia digital, reestructuración
-            operativa, organización empresarial y expansión comercial.
+            Por eso, cuando el diagnóstico lo requiere, integramos la alianza con{' '}
+            <a
+              href={SPL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-brand-blue hover:underline"
+            >
+              SPL Business
+            </a>{' '}
+            — consultoría estratégica, digital y empresarial — para acompañar automatización, presencia digital,
+            reestructuración operativa y expansión comercial.
           </p>
           <Highlight>
             Yurna Finance dirige la visión financiera. SPL Business complementa la expansión empresarial.
           </Highlight>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-10 card p-6 md:p-8 border-brand-blue/25 shadow-soft"
+          >
+            <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
+              <div className="text-center md:text-left">
+                <p className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2">
+                  Equipo SPL Business
+                </p>
+                <p className="text-foreground-muted text-sm leading-relaxed">
+                  SPL Business reúne especialistas en estrategia, digital, finanzas y operaciones con visión 360°.
+                  Desde Yurna Finance activamos esa alianza cuando el negocio necesita crecer más allá del orden
+                  financiero.
+                </p>
+                <a
+                  href={SPL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-brand-blue hover:underline"
+                >
+                  Conocer SPL Business
+                  <IconArrowRight />
+                </a>
+              </div>
+              <div className="rounded-xl border border-border bg-background-secondary p-5 md:min-w-[260px] text-center md:text-left">
+                <p className="font-bold text-foreground">Yurnairys Piñango</p>
+                <p className="mt-1 text-sm font-semibold text-brand-blue">Socia Financiera / Comercial</p>
+                <p className="mt-2 text-xs text-foreground-muted leading-relaxed">
+                  En SPL lidero el puente entre finanzas, control operativo y gestión comercial para proyectos que
+                  requieren crecimiento integral.
+                </p>
+                <a
+                  href={SPL_EQUIPO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-brand-blue hover:underline"
+                >
+                  Ver perfil en el equipo
+                  <IconArrowRight />
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 9. Resultados */}
       <section id="resultados" className="section-padding-sm section-surface-alt">
         <div className="section-container">
-          <SectionHeader title="¿Qué puede lograr tu negocio con este programa?" />
+          <SectionHeader
+            title={
+              <>
+                ¿Qué puede lograr tu negocio con <TitleAccent>este programa</TitleAccent>?
+              </>
+            }
+          />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {results.map((r, i) => (
               <motion.div
@@ -512,7 +625,11 @@ export default function ProgramaPage() {
       <section id="para-quien" className="section-padding section-surface">
         <div className="section-container">
           <SectionHeader
-            title="Diseñado para negocios que quieren crecer con dirección"
+            title={
+              <>
+                Diseñado para negocios que quieren <TitleAccent>crecer con dirección</TitleAccent>
+              </>
+            }
             subtitle="Empresas, emprendedores y profesionales que ya generan ingresos y buscan estructura."
           />
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -538,7 +655,11 @@ export default function ProgramaPage() {
         <div className="section-container max-w-3xl mx-auto text-center">
           <SectionHeader
             eyebrow="Yurna Finance"
-            title="Dirección financiera con visión humana y empresarial"
+            title={
+              <>
+                Dirección financiera con visión <TitleAccent>humana y empresarial</TitleAccent>
+              </>
+            }
           />
           <p className="text-foreground-muted leading-relaxed -mt-6">
             Yurna Finance nace desde la experiencia en contabilidad, finanzas, evaluación de empresas y proyectos.
@@ -548,7 +669,17 @@ export default function ProgramaPage() {
           </p>
           <p className="mt-4 text-foreground-muted leading-relaxed">
             Desde esta mirada, Yurna Finance acompaña a empresas, emprendedores y profesionales a ordenar la
-            realidad financiera del negocio, diseñar procesos y tomar decisiones con mayor seguridad.
+            realidad financiera del negocio, diseñar procesos y tomar decisiones con mayor seguridad. Como{' '}
+            <a
+              href={SPL_EQUIPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-brand-blue hover:underline"
+            >
+              Socia Financiera / Comercial en SPL Business
+            </a>
+            , conecto la dirección financiera con la estrategia empresarial y comercial cuando el crecimiento lo
+            requiere.
           </p>
           <Highlight>No trabajamos solo con números. Trabajamos con la realidad completa del negocio.</Highlight>
         </div>
@@ -559,7 +690,8 @@ export default function ProgramaPage() {
         <div className="hero-pattern absolute inset-0 opacity-[0.08]" aria-hidden />
         <div className="relative section-container text-center max-w-3xl mx-auto">
           <h2 className="section-title-light text-2xl md:text-4xl">
-            ¿Tu negocio está listo para ordenar sus finanzas y crecer con dirección?
+            ¿Tu negocio está listo para ordenar sus finanzas y{' '}
+            <TitleAccent variant="on-dark">crecer con dirección</TitleAccent>?
           </h2>
           <p className="mt-6 text-lg text-white/80 leading-relaxed">
             El primer paso es aplicar al Programa Dirección Financiera Integral. A partir de la consulta estratégica
@@ -568,7 +700,7 @@ export default function ProgramaPage() {
           </p>
           <Link
             href={APPLY_URL}
-            className="btn-primary mt-10 !bg-white !text-corporate-blue hover:!brightness-100 hover:!bg-white/95"
+            className="btn-primary-on-dark mt-10"
           >
             Aplicar al Programa
             <IconArrowRight />
@@ -582,7 +714,14 @@ export default function ProgramaPage() {
       {/* 13. FAQ */}
       <section id="faq" className="section-padding section-surface">
         <div className="section-container max-w-narrow mx-auto">
-          <SectionHeader eyebrow="FAQ" title="Preguntas frecuentes" />
+          <SectionHeader
+            eyebrow="FAQ"
+            title={
+              <>
+                <TitleAccent>Preguntas</TitleAccent> frecuentes
+              </>
+            }
+          />
           <dl className="space-y-3">
             {faqs.map((faq, i) => (
               <div key={faq.q} className={`faq-item ${openFaq === i ? 'faq-item-open' : ''}`}>

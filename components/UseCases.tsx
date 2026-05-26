@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import SectionHeader from './SectionHeader'
+import { TitleAccent } from './TitleAccent'
 
 const cases = [
   {
@@ -32,7 +33,11 @@ export default function UseCases() {
       <div className="section-container">
         <SectionHeader
           eyebrow="Casos de uso"
-          title="Situaciones donde la consultoría marca la diferencia"
+          title={
+            <>
+              Situaciones donde la consultoría <TitleAccent>marca la diferencia</TitleAccent>
+            </>
+          }
           subtitle="Ejemplos del tipo de retos que resolvemos con estructura y estrategia financiera."
         />
         <h2 id="cases-heading" className="sr-only">Casos de uso</h2>
