@@ -37,15 +37,15 @@ export default function Hero() {
             animate="show"
           >
             <motion.p variants={item} className="section-label mb-5">
-              Consultoría financiera · Personas · Emprendedores · Empresas
+              Consultoría financiera · Emprendedores · Empresas
             </motion.p>
             <motion.h1
               id="hero-heading"
               variants={item}
               className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl xl:text-[4rem] xl:leading-[1.06]"
             >
-              Consultoría financiera para{' '}
-              <span className="text-brand-blue font-semibold">ordenar, optimizar y hacer crecer</span> tu negocio
+              Estrategia financiera para{' '}
+              <span className="text-brand-blue font-semibold">hacer crecer</span> tu proyecto y empresa
             </motion.h1>
             <motion.p
               variants={item}

@@ -31,20 +31,13 @@ export default function Problem() {
             <SectionHeader
               align="left"
               eyebrow="El desafío"
-              title="Muchos negocios facturan, pero sin dirección financiera clara"
-              subtitle="Desorganización, falta de control y ausencia de reportes frenan el potencial real de crecimiento."
+              title="Muchos negocios crecen con esfuerzo, pero sin dirección clara"
+              subtitle="Aunque facturan, no ven liquidez: hay desorganización, falta de estrategia financiera y ausencia de automatización. Esto frena el potencial real."
               className="!mb-0 !mx-0 !text-left"
             />
-            <h2 id="problem-heading" className="sr-only">Desafíos financieros</h2>
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mt-6 text-foreground-muted leading-relaxed max-w-md"
-            >
-              Cuando no hay orden financiero, la incertidumbre y el desgaste se vuelven parte del día a día del
-              negocio.
-            </motion.p>
+            <h2 id="problem-heading" className="sr-only">
+              Desafíos financieros
+            </h2>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

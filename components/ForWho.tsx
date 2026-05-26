@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import SectionHeader from './SectionHeader'
 
 const audiences = [
-  'Personas que quieren ordenar sus finanzas personales',
   'Emprendedores que quieren saber si su negocio es rentable',
   'Empresas que necesitan procesos, control y reportes',
   'Negocios que quieren crecer sin depender solo del dueño',
@@ -21,7 +20,7 @@ export default function ForWho() {
         <SectionHeader
           eyebrow="Para quién es"
           title="Experiencia adaptada a distintos perfiles y etapas"
-          subtitle="Metodología flexible para personas, emprendedores y empresas que buscan orden financiero."
+          subtitle="Metodología flexible para emprendedores, empresas y profesionales que buscan orden financiero."
         />
         <h2 id="forwho-heading" className="sr-only">Para quién es</h2>
         <motion.div

@@ -3,51 +3,132 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import SectionHeader from './SectionHeader'
-import { IconArrowRight, IconChart } from './Icons'
+import {
+  IconChart,
+  IconBuilding,
+  IconBriefcase,
+  IconDocument,
+  IconCalculator,
+  IconTrendingUp,
+  IconCalendar,
+} from './Icons'
+
+type ServiceItem = {
+  title: string
+  description: string
+  tags: string[]
+  icon: typeof IconChart
+  href: string
+  featured?: boolean
+}
+
+const services: ServiceItem[] = [
+  {
+    title: 'Programa Dirección Financiera Integral',
+    description:
+      'Diagnóstico, estructura y ruta de crecimiento para empresas, emprendedores y profesionales con ingresos.',
+    tags: ['Programa', 'Estrategia', 'Crecimiento'],
+    icon: IconChart,
+    href: '/servicios',
+    featured: true,
+  },
+  {
+    title: 'Diagnóstico financiero',
+    description: 'Revisión integral de tu situación actual: números, procesos y puntos críticos.',
+    tags: ['Análisis', 'Diagnóstico', 'Prioridades'],
+    icon: IconChart,
+    href: '/agendar?tipo=diagnostico',
+  },
+  {
+    title: 'Consultoría financiera para empresas',
+    description: 'Estructura, control y reportes para empresas que necesitan orden y dirección.',
+    tags: ['Estrategia', 'Operación', 'KPIs'],
+    icon: IconBuilding,
+    href: '/agendar?tipo=empresarial',
+  },
+  {
+    title: 'Finanzas para emprendedores',
+    description: 'Claridad sobre rentabilidad, gastos y crecimiento de tu negocio.',
+    tags: ['Rentabilidad', 'Control', 'Crecimiento'],
+    icon: IconBriefcase,
+    href: '/agendar?tipo=emprendedor',
+  },
+  {
+    title: 'Estructuración administrativa y contable',
+    description: 'Procesos claros, responsabilidades definidas y mejor flujo de información.',
+    tags: ['Procesos', 'Organización', 'Control'],
+    icon: IconDocument,
+    href: '/agendar?tipo=empresarial',
+  },
+  {
+    title: 'Evaluación financiera de proyectos',
+    description: 'Análisis de viabilidad, costos y retorno antes de invertir o expandirte.',
+    tags: ['Viabilidad', 'ROI', 'Proyecciones'],
+    icon: IconCalculator,
+    href: '/agendar?tipo=proyectos',
+  },
+  {
+    title: 'Control de flujo de caja y presupuestos',
+    description: 'Herramientas y seguimiento para saber cuánto entra, sale y sobra.',
+    tags: ['Flujo de caja', 'Presupuesto', 'Seguimiento'],
+    icon: IconTrendingUp,
+    href: '/agendar?tipo=flujo',
+  },
+  {
+    title: 'Acompañamiento mensual',
+    description: 'Seguimiento continuo para sostener orden, control y mejora financiera.',
+    tags: ['Seguimiento', 'Resultados', 'Estrategia'],
+    icon: IconCalendar,
+    href: '/agendar?tipo=acompanamiento',
+  },
+]
 
 export default function Services() {
   return (
     <section id="servicios" className="section-padding section-surface-muted" aria-labelledby="services-heading">
       <div className="section-container">
         <SectionHeader
-          eyebrow="Servicio"
-          title="Programa Dirección Financiera Integral"
-          subtitle="Finanzas, estructura y expansión para empresas, emprendedores y profesionales que ya generan ingresos."
+          eyebrow="Servicios"
+          title="Soluciones financieras para cada etapa de tu negocio"
+          subtitle="Diagnóstico, consultoría, control y acompañamiento con enfoque en resultados reales."
         />
         <h2 id="services-heading" className="sr-only">
-          Programa Dirección Financiera Integral
+          Servicios de consultoría financiera
         </h2>
-        <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="card card-hover p-8 md:p-12 max-w-3xl mx-auto text-center border-brand-blue/20"
-        >
-          <span className="icon-box mx-auto mb-6 [&_svg]:h-5 [&_svg]:w-5">
-            <IconChart />
-          </span>
-          <p className="text-foreground-muted leading-relaxed">
-            Un programa diseñado para diagnosticar, ordenar y construir una ruta de crecimiento real. Inicia con
-            consulta estratégica, continúa con diagnóstico financiero y empresarial, y finaliza con un plan de acción
-            personalizado.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
-            {['Diagnóstico', 'Estructura', 'Indicadores', 'Crecimiento'].map((tag) => (
-              <span key={tag} className="tag">
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
-            <Link href="/servicios" className="btn-primary px-6 py-3">
-              Ver programa completo
-              <IconArrowRight />
-            </Link>
-            <Link href="/agendar?tipo=programa" className="btn-outline px-6 py-3">
-              Aplicar al Programa
-            </Link>
-          </div>
-        </motion.article>
+        <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
+          {services.map((s, i) => (
+            <motion.article
+              key={s.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: (i % 2) * 0.08 }}
+              className={`card card-hover p-6 md:p-8 flex flex-col ${
+                s.featured ? 'md:col-span-2 border-brand-blue/25 bg-brand-blue/[0.03]' : ''
+              }`}
+            >
+              <div className="flex items-start gap-4">
+                <span className="icon-box [&_svg]:h-4 [&_svg]:w-4">
+                  <s.icon />
+                </span>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-lg text-foreground leading-snug">{s.title}</h3>
+                  <p className="mt-2 text-sm text-foreground-muted leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {s.tags.map((tag) => (
+                  <span key={tag} className="tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <Link href={s.href} className="btn-link mt-5">
+                {s.featured ? 'Ver programa completo →' : 'Conocer más →'}
+              </Link>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   )

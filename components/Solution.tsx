@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import SectionHeader from './SectionHeader'
 
 const items = [
   'Diagnóstico profundo de tu situación financiera',
@@ -26,8 +25,7 @@ export default function Solution() {
                 De la desorganización a una estructura financiera de crecimiento
               </h2>
               <p className="mt-4 text-foreground-muted leading-relaxed">
-                Consultoría financiera con diagnóstico, estrategia y acompañamiento para personas, emprendedores y
-                empresas.
+                Consultoría financiera con diagnóstico, estrategia y acompañamiento para emprendedores y empresas.
               </p>
               <div className="mt-8 rounded-xl bg-white border border-border p-6 shadow-soft">
                 <p className="text-3xl font-bold text-brand-blue">100%</p>
@@ -54,9 +52,14 @@ export default function Solution() {
                 </motion.li>
               ))}
             </ol>
-            <Link href="#metodo" className="btn-outline mt-8">
-              Ver metodología
-            </Link>
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+              <Link href="#metodo" className="btn-outline px-6 py-3">
+                Ver metodología
+              </Link>
+              <Link href="/servicios" className="btn-primary px-6 py-3">
+                Ver programa integral
+              </Link>
+            </div>
           </div>
         </div>
       </div>

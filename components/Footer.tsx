@@ -16,9 +16,10 @@ const navLinks = [
 
 const services = [
   'Programa Dirección Financiera Integral',
-  'Consulta estratégica inicial',
-  'Diagnóstico financiero y empresarial',
-  'Diseño del programa de acción',
+  'Diagnóstico financiero',
+  'Consultoría para empresas',
+  'Finanzas para emprendedores',
+  'Flujo de caja y presupuestos',
 ]
 
 export default function Footer() {
@@ -78,10 +79,10 @@ export default function Footer() {
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">Comenzar</h3>
               <p className="mt-4 text-sm text-foreground-muted">
-                Aplica al Programa Dirección Financiera Integral y da el primer paso hacia claridad y crecimiento.
+                Agenda una consulta y descubre cómo puedo ayudarte a ordenar tus finanzas.
               </p>
-              <Link href="/agendar?tipo=programa" className="btn-primary mt-4 !text-sm !py-2.5 !px-5">
-                Aplicar al Programa
+              <Link href="/agendar" className="btn-primary mt-4 !text-sm !py-2.5 !px-5">
+                Agendar consulta
               </Link>
               <ul className="mt-6 space-y-2 text-sm text-foreground-muted">
                 <li>

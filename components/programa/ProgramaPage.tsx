@@ -2,11 +2,13 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import SectionHeader from '@/components/SectionHeader'
 import { IconArrowRight } from '@/components/Icons'
 
 const APPLY_URL = '/agendar?tipo=programa'
+const DIAGNOSTICO_URL = '#diagnostico'
 
 const forYou = [
   'Ya generas ingresos, pero no tienes claridad financiera.',
@@ -193,36 +195,68 @@ export default function ProgramaPage() {
       {/* 1. Hero */}
       <section id="inicio" className="relative overflow-hidden bg-white pt-32 pb-16 md:pt-36 md:pb-20 lg:pt-40 lg:pb-28">
         <div className="hero-pattern absolute inset-0 opacity-50" aria-hidden />
-        <div className="absolute right-0 top-0 h-full w-2/5 bg-gradient-to-l from-brand-blue/[0.05] to-transparent pointer-events-none" aria-hidden />
-        <div className="relative section-container max-w-4xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-            <p className="section-label">Programa Dirección Financiera Integral</p>
-            <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.06]">
-              Dirección financiera estratégica para negocios que quieren{' '}
-              <span className="text-brand-blue">crecer con orden</span>
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-foreground-muted leading-relaxed">
-              En Yurna Finance ayudamos a empresas, emprendedores y profesionales a diagnosticar, ordenar y
-              estructurar sus finanzas para tomar mejores decisiones y construir un crecimiento real.
-            </p>
-            <p className="mt-4 text-foreground-muted leading-relaxed">
-              Las finanzas muestran la verdad del negocio. Desde allí diseñamos el camino para ordenar procesos,
-              mejorar la rentabilidad y alinear la operación con una estrategia de crecimiento.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <Link href={APPLY_URL} className="btn-primary px-6 py-3">
-                Aplicar al Programa
-                <IconArrowRight />
-              </Link>
-              <a href="#metodologia" className="btn-outline px-6 py-3">
-                Conocer el diagnóstico
-              </a>
-            </div>
-            <p className="mt-6 text-sm text-foreground-subtle max-w-xl">
-              Trabajamos con negocios y profesionales que están listos para invertir en estructura, claridad y
-              crecimiento.
-            </p>
-          </motion.div>
+        <div
+          className="absolute right-0 top-0 h-full w-2/5 bg-gradient-to-l from-brand-blue/[0.05] to-transparent pointer-events-none"
+          aria-hidden
+        />
+        <div className="relative section-container">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <motion.div
+              className="lg:col-span-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+            >
+              <p className="section-label">Programa Dirección Financiera Integral</p>
+              <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.06]">
+                Dirección financiera estratégica para negocios que quieren{' '}
+                <span className="text-brand-blue">crecer con orden</span>
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-foreground-muted leading-relaxed">
+                En Yurna Finance ayudamos a empresas, emprendedores y profesionales a diagnosticar, ordenar y
+                estructurar sus finanzas para tomar mejores decisiones y construir un crecimiento real.
+              </p>
+              <p className="mt-4 text-foreground-muted leading-relaxed">
+                Las finanzas muestran la verdad del negocio. Desde allí diseñamos el camino para ordenar procesos,
+                mejorar la rentabilidad y alinear la operación con una estrategia de crecimiento.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                <Link href={APPLY_URL} className="btn-primary px-6 py-3">
+                  Aplicar al Programa
+                  <IconArrowRight />
+                </Link>
+                <a href={DIAGNOSTICO_URL} className="btn-outline px-6 py-3">
+                  Conocer el diagnóstico
+                </a>
+              </div>
+              <p className="mt-6 text-sm text-foreground-subtle max-w-xl">
+                Trabajamos con negocios y profesionales que están listos para invertir en estructura, claridad y
+                crecimiento.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="lg:col-span-6"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              <div className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-2xl md:rounded-3xl border border-border shadow-soft">
+                <Image
+                  src="/assets/img/finanza-analisis.jpg"
+                  alt="Análisis financiero y dirección estratégica para empresas en crecimiento"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-corporate-navy/50 via-transparent to-transparent pointer-events-none"
+                  aria-hidden
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -319,6 +353,9 @@ export default function ProgramaPage() {
             <p className="mt-3 text-lg font-semibold text-brand-blue">
               Finanzas, estructura y expansión para negocios en crecimiento.
             </p>
+            <p className="mt-2 text-base font-medium text-foreground">
+              Un solo programa para diagnosticar, ordenar y construir una ruta de crecimiento.
+            </p>
             <p className="mt-6 text-foreground-muted leading-relaxed text-left md:text-center">
               Un programa diseñado para empresas, emprendedores y profesionales que necesitan ordenar sus finanzas,
               tomar mejores decisiones y construir una estructura real para crecer. El programa inicia con una
@@ -326,10 +363,19 @@ export default function ProgramaPage() {
               de un programa de acción personalizado.
             </p>
             <p className="mt-4 text-foreground-muted leading-relaxed text-left md:text-center">
-              El Programa Dirección Financiera Integral está diseñado para quienes necesitan claridad, estructura y
-              dirección para avanzar. No vendemos servicios sueltos. Trabajamos con una metodología que permite
-              entender la situación actual del negocio, identificar los puntos críticos y diseñar un programa de
-              acción adaptado a su realidad.
+              El Programa Dirección Financiera Integral está diseñado para empresas, emprendedores y profesionales
+              que necesitan claridad, estructura y dirección para avanzar. No vendemos servicios sueltos. Trabajamos
+              con una metodología que permite entender la situación actual del negocio, identificar los puntos
+              críticos y diseñar un programa de acción adaptado a su realidad.
+            </p>
+            <p className="mt-4 text-foreground-muted leading-relaxed text-left md:text-center">
+              El objetivo es que el cliente no solo entienda sus números, sino que pueda tomar decisiones, ordenar
+              procesos, mejorar la rentabilidad y preparar su negocio para crecer.
+            </p>
+            <p className="mt-4 text-foreground-muted leading-relaxed text-left md:text-center">
+              Cuando el negocio requiere una solución más amplia, Yurna Finance integra la alianza con SPL Business
+              para acompañar procesos de automatización, presencia digital, reestructuración operativa, organización
+              empresarial y expansión comercial.
             </p>
             <Link href={APPLY_URL} className="btn-primary mt-8">
               Aplicar al Programa
@@ -350,11 +396,12 @@ export default function ProgramaPage() {
             {includes.map((item, i) => (
               <motion.article
                 key={item.title}
+                id={item.title === 'Diagnóstico Financiero y Empresarial' ? 'diagnostico' : undefined}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i % 2) * 0.06 }}
-                className="card card-hover p-6 md:p-8"
+                className="card card-hover p-6 md:p-8 scroll-mt-32"
               >
                 <span className="icon-box mb-4 text-xs font-bold">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="font-semibold text-lg text-foreground">{item.title}</h3>
