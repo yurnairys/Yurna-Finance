@@ -12,6 +12,25 @@ const APPLY_URL = '/agendar?tipo=programa'
 const DIAGNOSTICO_URL = '#diagnostico'
 const SPL_URL = 'https://www.splbusiness.com'
 const SPL_EQUIPO_URL = 'https://www.splbusiness.com/#equipo'
+const SPL_INDUSTRIES_URL = 'https://www.splbusiness.com/#industrias'
+
+/** Sectores de experiencia SPL Business (referencia: splbusiness.com) */
+const splIndustries = [
+  'Negocios locales',
+  'Consultorías',
+  'Servicios profesionales',
+  'Finanzas',
+  'Real estate',
+  'Turismo',
+  'Educación',
+  'Wellness y belleza',
+  'Comercio',
+  'Startups',
+  'Empresas familiares',
+  'Marcas personales profesionales',
+] as const
+
+const splLeadIndustries = new Set<string>(['Finanzas', 'Comercio', 'Servicios profesionales'])
 
 const forYou = [
   'Ya generas ingresos, pero no tienes claridad financiera.',
@@ -514,7 +533,7 @@ export default function ProgramaPage() {
 
       {/* 8. SPL Business */}
       <section id="alianza" className="section-padding section-surface">
-        <div className="section-container max-w-4xl mx-auto">
+        <div className="section-container max-w-5xl mx-auto">
           <SectionHeader
             eyebrow="Alianza estratégica"
             title={
@@ -549,45 +568,116 @@ export default function ProgramaPage() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-10 card p-6 md:p-8 border-brand-blue/25 shadow-soft"
+            className="mt-10 card p-6 sm:p-8 md:p-10 border-brand-blue/25 shadow-soft"
           >
-            <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
-              <div className="text-center md:text-left">
-                <p className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2">
-                  Equipo SPL Business
+            <div className="flex flex-col gap-8 lg:flex-row lg:gap-10 lg:items-start">
+              <div className="flex-1 min-w-0">
+                <p className="section-label !text-left mb-4">Equipo SPL Business</p>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground leading-snug">
+                  Estrategia, digital y operaciones con visión 360°
+                </h3>
+                <p className="mt-4 text-foreground-muted leading-relaxed">
+                  <a
+                    href={SPL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-brand-blue hover:underline"
+                  >
+                    SPL Business
+                  </a>{' '}
+                  reúne especialistas en consultoría empresarial, transformación digital, finanzas y crecimiento
+                  comercial. Desde Yurna Finance activamos esta alianza cuando tu negocio necesita ir más allá del
+                  orden financiero.
                 </p>
-                <p className="text-foreground-muted text-sm leading-relaxed">
-                  SPL Business reúne especialistas en estrategia, digital, finanzas y operaciones con visión 360°.
-                  Desde Yurna Finance activamos esa alianza cuando el negocio necesita crecer más allá del orden
-                  financiero.
-                </p>
-                <a
-                  href={SPL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-brand-blue hover:underline"
-                >
-                  Conocer SPL Business
-                  <IconArrowRight />
-                </a>
+
+                <div className="mt-6">
+                  <p className="text-sm font-semibold text-foreground">
+                    Experiencia en{' '}
+                    <span className="text-brand-blue">sectores diversos</span>
+                  </p>
+                  <p className="mt-1 text-xs text-foreground-subtle">
+                    Metodología adaptada a cada industria — como en{' '}
+                    <a
+                      href={SPL_INDUSTRIES_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-blue hover:underline"
+                    >
+                      SPL Business
+                    </a>
+                    .
+                  </p>
+                  <ul className="mt-3 flex flex-wrap gap-2" role="list" aria-label="Industrias SPL Business">
+                    {splIndustries.map((industry) => {
+                      const isLead = splLeadIndustries.has(industry)
+                      return (
+                        <li key={industry}>
+                          <span
+                            className={
+                              isLead
+                                ? 'inline-flex items-center rounded-full border border-brand-blue/35 bg-brand-blue/10 px-3 py-1.5 text-xs font-semibold text-brand-blue'
+                                : 'inline-flex items-center rounded-full border border-border bg-white px-3 py-1.5 text-xs font-medium text-foreground-muted'
+                            }
+                          >
+                            {industry}
+                            {isLead ? (
+                              <span className="sr-only"> — área que lidero en SPL</span>
+                            ) : null}
+                          </span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                  <p className="mt-3 text-xs text-foreground-muted">
+                    Como socia, concentro{' '}
+                    <span className="font-semibold text-brand-blue">finanzas</span>,{' '}
+                    <span className="font-semibold text-brand-blue">comercio</span> y servicios profesionales.
+                  </p>
+                </div>
               </div>
-              <div className="rounded-xl border border-border bg-background-secondary p-5 md:min-w-[260px] text-center md:text-left">
-                <p className="font-bold text-foreground">Yurnairys Piñango</p>
-                <p className="mt-1 text-sm font-semibold text-brand-blue">Socia Financiera / Comercial</p>
-                <p className="mt-2 text-xs text-foreground-muted leading-relaxed">
+
+              <aside className="w-full lg:w-[min(100%,22rem)] lg:shrink-0 rounded-xl border border-border bg-background-secondary p-6">
+                <div className="flex items-center gap-4">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-sm">
+                    <Image
+                      src="/assets/img/yurna.jpg"
+                      alt="Yurnairys Piñango"
+                      fill
+                      className="object-cover object-[center_20%]"
+                      sizes="64px"
+                      unoptimized
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-bold text-foreground leading-tight">Yurnairys Piñango</p>
+                    <p className="mt-1 text-sm font-semibold text-brand-blue">Socia Financiera / Comercial</p>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm text-foreground-muted leading-relaxed">
                   En SPL lidero el puente entre finanzas, control operativo y gestión comercial para proyectos que
                   requieren crecimiento integral.
                 </p>
-                <a
-                  href={SPL_EQUIPO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-brand-blue hover:underline"
-                >
-                  Ver perfil en el equipo
-                  <IconArrowRight />
-                </a>
-              </div>
+              </aside>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+              <a
+                href={SPL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline px-6 py-3 text-center"
+              >
+                Conocer SPL Business
+              </a>
+              <a
+                href={SPL_EQUIPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary px-6 py-3 text-center"
+              >
+                Ver perfil en el equipo
+                <IconArrowRight />
+              </a>
             </div>
           </motion.div>
         </div>
