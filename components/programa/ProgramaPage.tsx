@@ -295,25 +295,48 @@ export default function ProgramaPage() {
             title="Muchas empresas no tienen un problema de ventas. Tienen un problema de estructura."
             subtitle="Un negocio puede vender, facturar y moverse todos los días, pero aun así no tener liquidez, rentabilidad ni dirección clara."
           />
-          <p className="text-center max-w-3xl mx-auto text-foreground-muted leading-relaxed -mt-8 mb-12">
-            El problema muchas veces no está solo en cuánto dinero entra, sino en cómo se administra, cómo se
-            controla, cómo se mide y qué tan alineados están los procesos con el crecimiento.
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {problems.map((p, i) => (
-              <motion.div
-                key={p}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (i % 3) * 0.05 }}
-                className="card p-4 md:p-5 text-sm text-foreground-muted"
-              >
-                {p}
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto items-center -mt-4">
+            <div>
+              <p className="text-foreground-muted leading-relaxed">
+                El problema muchas veces no está solo en cuánto dinero entra, sino en cómo se administra, cómo se
+                controla, cómo se mide y qué tan alineados están los procesos con el crecimiento.
+              </p>
+              <ul className="mt-6 space-y-2.5" role="list">
+                {problems.map((p, i) => (
+                  <motion.li
+                    key={p}
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (i % 4) * 0.04 }}
+                    className="flex items-start gap-2.5 text-sm text-foreground-muted"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-blue" aria-hidden />
+                    {p}
+                  </motion.li>
+                ))}
+              </ul>
+              <Highlight>
+                Vender más no siempre significa crecer mejor. Primero hay que entender qué sostiene el crecimiento.
+              </Highlight>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border shadow-soft"
+            >
+              <Image
+                src="/assets/img/desafio-empresarial.jpg"
+                alt="Empresaria revisando la situación financiera de su negocio con preocupación"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 480px"
+                unoptimized
+              />
+            </motion.div>
           </div>
-          <Highlight>Vender más no siempre significa crecer mejor. Primero hay que entender qué sostiene el crecimiento.</Highlight>
         </div>
       </section>
 

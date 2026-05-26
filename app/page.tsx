@@ -1,8 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Stats from '@/components/Stats'
-import Problem from '@/components/Problem'
-import Solution from '@/components/Solution'
 import Services from '@/components/Services'
 import Method from '@/components/Method'
 import ForWho from '@/components/ForWho'
@@ -21,8 +19,6 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Stats />
-        <Problem />
-        <Solution />
         <Services />
         <Method />
         <ForWho />
